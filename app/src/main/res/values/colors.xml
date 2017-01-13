@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Transparent0">#FF000000</color>
+    <color name="Transparent10">#E6000000</color>
+    <color name="Transparent20">#CC000000</color>
+    <color name="Transparent30">#B3000000</color>
+    <color name="Transparent40">#99000000</color>
+    <color name="Transparent50">#80000000</color>
+    <color name="Transparent60">#66000000</color>
+    <color name="Transparent70">#4D000000</color>
+    <color name="Transparent80">#33000000</color>
+    <color name="Transparent90">#1A000000</color>
+    <color name="Transparent100">#00000000</color>
+    
+    <color name="CyanTrans50">#8066ffff</color>
+    <color name="CyanTrans40">#9966ffff</color>
+    <color name="CyanTrans60">#6666ffff</color>
+    <color name="CyanTrans30">#B33889b8</color>
+    
+    <color name="blueColor100">#008fff</color>
+    <color name="blueColor90">#1A008fff</color>
+    <color name="blueColor80">#33008fff</color>
+    <color name="blueColor70">#4D008fff</color>
+    <color name="blueColor60">#66008fff</color>
+    <color name="blueColor50">#80008fff</color>
+    <color name="blueColor40">#99008fff</color>
+    <color name="blueColor30">#B3008fff</color>
+    <color name="blueColor20">#CC008fff</color>
+    <color name="blueColor10">#E6008fff</color>
+    
+    <color name="gray">#303030</color>
+    <color name="gray90">#1A303030</color>
+    <color name="gray80">#33303030</color>
+    <color name="gray70">#4D303030</color>
+    <color name="gray60">#66303030</color>
+    <color name="gray50">#80303030</color>
+    <color name="gray40">#99303030</color>
+    <color name="gray30">#B3303030</color>
+    <color name="gray20">#CC303030</color>
+    <color name="gray10">#E6303030</color>
+    
+</resources>

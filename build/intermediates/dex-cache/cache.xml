@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="be87d7ca866cdd1a5a5218e3e626701580712b79">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/instant-run_a1de0c95ff42fc384051cf423623a3dce25f6be2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/jars/libs/internal_impl-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0_1c1a98bb1eab5407397c26c7e88421e8b9a946a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="62681b8212ca52278feafec31775fd0cb096d99a">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.3.0-jar-with-dependencies_a90918ea48fcd2dfb22c63cc3204dc5bfd6e7d43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9246f2f71004533f1c7b913aac78766fcefd5392">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_d565dcfddd02bd5902385d98e08d2de96653aeb7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-20.0.0_97a6c680f168153ed91a89629e625b2f98063f10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/DevSoftware/adt-bundle-linux-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0_4b91703edfd227fedd65ec7e7608bc098e0253f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-20.0.0_874b90fc66370e89760ca7df51d6565cd95ef286.jar" />
+    </item>
+
+</items>

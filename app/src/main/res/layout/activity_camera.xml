@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.uit.instancesearch.camera.CameraActivity" >
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    
+    <LinearLayout
+        android:id="@+id/selected_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:background="#000000"
+        android:visibility="invisible">
+        
+        <ImageView 
+        android:id="@+id/selected_image_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/selected_imageview_desc" 
+        android:src="@drawable/ic_camera"
+        />
+    </LinearLayout>
+    
+    <com.uit.instancesearch.camera.RegionSelectionView
+       android:id="@+id/region_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    
+    <com.uit.instancesearch.camera.MenuView 
+        android:id="@+id/menu_view"
+        android:layout_gravity="right"
+        android:layout_width="70dp"
+        android:layout_height="fill_parent" />
+        
+    <com.uit.instancesearch.camera.ResultView 
+	    android:id="@+id/result_view"
+	    android:layout_gravity="right"
+	    android:layout_width="300dp"
+	    android:layout_height="fill_parent"
+	    android:translationX="300dp"
+	    android:background="@color/Transparent100" >
+	</com.uit.instancesearch.camera.ResultView>
+	
+   	<FrameLayout 
+        android:id="@+id/image_view" 
+        android:layout_gravity="left"
+        android:layout_width="300dp"
+        android:layout_height="fill_parent"
+        android:translationX="-300dp"
+        android:background="@color/Transparent20"
+        android:orientation="horizontal">  
+        <!--  <com.uit.instancesearch.camera.QueryImageView -->
+        
+    </FrameLayout>
+    
+   	
+   	<LinearLayout
+   	    android:id="@+id/result_menu"
+   	    android:orientation="horizontal"
+   	    android:layout_gravity="bottom"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="30dp"
+   	    android:background="@color/Transparent100"
+   	    android:translationY="30dp"
+   	    >
+
+   	    <ImageButton 
+   	        android:id="@+id/save_button"
+   	        android:layout_width="wrap_content"
+   	        android:layout_height="wrap_content"
+   	        android:src="@drawable/ic_download"
+   	        android:scaleType="fitCenter"
+   	        android:adjustViewBounds="true"
+   	         />
+   	</LinearLayout>
+    
+</FrameLayout>

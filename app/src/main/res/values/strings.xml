@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISCamera</string>
+    <string name="title_activity_camera">Instance Search</string>
+	<string name="imageview_desc">Query image</string>
+	<string name="selected_imageview_desc">Selected Image</string>
+	<string name="none"></string>
+	<string name="cancel">Cancel</string>
+	<string name="loading">Loading&#8230; Please wait!</string>
+</resources>

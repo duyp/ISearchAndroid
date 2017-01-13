@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="17"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="10396924789540"
+    token="3328658294777028213"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="520" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="11" />
+    <task
+        name="verifier"
+        duration="2" />
+
+    <artifact
+        location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/outputs/apk/app-debug.apk"
+        type="MAIN" />
+
+    <build
+        timestamp="10396924789540"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>
