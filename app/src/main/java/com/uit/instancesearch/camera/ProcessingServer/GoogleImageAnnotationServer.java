@@ -7,7 +7,7 @@ package com.uit.instancesearch.camera.ProcessingServer;
 public class GoogleImageAnnotationServer extends ProcessingServer {
 
     @Override
-    void cancelExecute() {
+    public void cancelExecute() {
 
     }
 }

@@ -1,19 +1,22 @@
 package com.uit.instancesearch.camera;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServer;
+import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
+import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.listener.ActionListener;
+import com.uit.instancesearch.camera.listener.GoogleServiceListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
-import com.uit.instancesearch.camera.listener.WebServiceListener;
+import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 import com.uit.instancesearch.camera.manager.CameraManager;
-import com.uit.instancesearch.camera.manager.ResultViewManager;
+import com.uit.instancesearch.camera.manager.UITResultViewManager;
 import com.uit.instancesearch.camera.manager.WSManager;
-import com.uit.instancesearch.camera.tools.StringTools;
+import com.uit.instancesearch.camera.tools.ImageTools;
 import com.uit.instancesearch.camera.tools.ViewTools;
 
+import android.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -22,7 +25,6 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -34,9 +36,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class CameraActivity extends ActionBarActivity implements RegionSelectListener, 
-																 WebServiceListener,
-																 ActionListener {
+public class CameraActivity extends ActionBarActivity implements RegionSelectListener,
+        UITWebServiceListener,
+        ActionListener,
+        ServersDialogFragment.ServersDialogListener,
+        GoogleServiceListener {
 
 	private static final int SELECT_PHOTO = 100;
 	
@@ -44,7 +48,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 	WSManager 			wsManager;		// web services manager
 	Camera 				camera;			// camera
 	
-	ResultViewManager 	resultViewManager;
+	UITResultViewManager resultViewManager;
 	
 	CameraPreview 		cPreview;		// camera preview
 	RegionSelectionView regionView;		// region selection view
@@ -54,6 +58,9 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 	LinearLayout		selectView;
 	
 	boolean 			imageSelecting;
+
+    ProcessingServer server;
+    int selectedServer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,40 +74,45 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 
 	   //set content view AFTER ABOVE sequence (to avoid crash)
 	    this.setContentView(R.layout.activity_camera);
-	    
-	    imageSelecting = false;
-		camera = CameraManager.getCameraInstance();
-		if (camera != null) {
-			//camera preview
-			cPreview = new CameraPreview(this, camera);
-			FrameLayout preview = (FrameLayout)findViewById(R.id.camera_preview);
-			preview.addView(cPreview);
-			//region view
-			regionView = (RegionSelectionView)this.findViewById(R.id.region_view);
-			regionView.init(this);
-			//web services
-			wsManager = new WSManager(this, this);
-			// initialize Camera manager
-			cameraManager = new CameraManager(this, camera, cPreview, regionView, wsManager);
-			cameraManager.initialize(this,this);
-			//menu view
-			menuView = (MenuView)this.findViewById(R.id.menu_view);
-			// selected view
-			selectView = (LinearLayout)this.findViewById(R.id.selected_view);
-			selectImageView = (ImageView)this.findViewById(R.id.selected_image_view);
-			
-			// result event manager
-			resultViewManager = new ResultViewManager(this);
-		}
-		
-		MenuView menuView = (MenuView)this.findViewById(R.id.menu_view);
-		menuView.initializeCameraListener(this);
-		
-		regionView.setWidthLimited(CameraManager.getScreenSize().x - menuView.getLayoutParams().width);
+
+		// show server choices dialog
+		ServersDialogFragment serverDialog = new ServersDialogFragment();
+		serverDialog.setCancelable(false);
+		serverDialog.show(getFragmentManager(),"servers");
+
 	}
 
+    public void onServersDialogPositiveClick(DialogFragment dialog, int chosenServer) {
+        Toast.makeText(this,chosenServer==WSManager.SERVER_UIT?R.string.uit_server:R.string.google_server,Toast.LENGTH_SHORT);
+        selectedServer = chosenServer;
+        if (chosenServer == WSManager.SERVER_UIT) {
+            server = new UITImageRetrievalServer(this, this);
+        } else {
+            server = new GoogleImageAnnotationServer();
+        }
+        initialize();
+    }
 
-	@Override
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!imageSelecting) {
+            releaseCamera();
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (imageSelecting) {
+            camera.stopPreview();
+        }
+        //camera = CameraManager.getCameraInstance();
+    }
+
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		super.onCreateOptionsMenu(menu);
@@ -114,6 +126,39 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 		// as you specify a parent activity in AndroidManifest.xml.
 		return super.onOptionsItemSelected(item);
 	}
+
+
+    private void initialize() {
+        wsManager = new WSManager(this,server);
+        imageSelecting = false;
+        camera = CameraManager.getCameraInstance();
+        if (camera != null) {
+            //camera preview
+            cPreview = new CameraPreview(this, camera);
+            FrameLayout preview = (FrameLayout)findViewById(R.id.camera_preview);
+            preview.addView(cPreview);
+            //region view
+            regionView = (RegionSelectionView)this.findViewById(R.id.region_view);
+            regionView.init(this);
+
+            // initialize Camera manager
+            cameraManager = new CameraManager(this, camera, cPreview, regionView, wsManager);
+            cameraManager.initialize(server,this,this,this);
+            //menu view
+            menuView = (MenuView)this.findViewById(R.id.menu_view);
+            // selected view
+            selectView = (LinearLayout)this.findViewById(R.id.selected_view);
+            selectImageView = (ImageView)this.findViewById(R.id.selected_image_view);
+
+            // result event manager
+            resultViewManager = new UITResultViewManager(this);
+        }
+
+        MenuView menuView = (MenuView)this.findViewById(R.id.menu_view);
+        menuView.initializeCameraListener(this);
+
+        regionView.setWidthLimited(CameraManager.getScreenSize().x - menuView.getLayoutParams().width);
+    }
 	
 	void hideMenu() {
 		menuView.hideMenu();
@@ -132,24 +177,6 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
             camera.release();        // release the camera for other applications
             camera = null;
         }
-    }
-    
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (!imageSelecting) {
-        	releaseCamera();
-        	android.os.Process.killProcess(android.os.Process.myPid());
-        }
-    }
-    
-    @Override
-    protected void onResume() {
-    	super.onResume();
-    	if (imageSelecting) {
-    		camera.stopPreview();
-    	}
-    	//camera = CameraManager.getCameraInstance();
     }
 
     @Override
@@ -197,7 +224,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 		//regionView.setVisibility(View.VISIBLE);
 	}
 
-	// Web Service listener
+	// UIT Web Service listener
 	@Override
 	public void onServerRespond(String[] rankedList) {
 		regionView.doneScan();
@@ -217,7 +244,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 	public void onRequestImage(String requestTag, String[] imageIds) {
 		//resultViewManager.setItemClickEnabled(false);
 		//resultViewManager.getQueryTextView().setText(R.string.loading);
-		wsManager.executeImageRequest(requestTag, imageIds);
+		wsManager.executeUITImageRequest(this, requestTag, imageIds);
 	}
 
 	@Override
@@ -230,17 +257,17 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 
 	@Override
 	public void onImageRecieved(String tag, String imgId, Bitmap result) {
-		if (tag.equals(WSManager.TAG_QUERY) || tag.equals(WSManager.TAG_GET_THUMBNAIL_IMAGE)) {
+		if (tag.equals(UITImageRetrievalServer.TAG_QUERY) || tag.equals(UITImageRetrievalServer.TAG_GET_THUMBNAIL_IMAGE)) {
 			resultViewManager.addThumbnailImage(imgId, result); // add thumbnail with image id
 			//resultViewManager.getQueryTextView().setText(R.string.none);
 			//resultViewManager.setItemClickEnabled(true);
-		} else if (tag.equals(WSManager.TAG_GET_PREVIEW_IMAGE)) {
+		} else if (tag.equals(UITImageRetrievalServer.TAG_GET_PREVIEW_IMAGE)) {
 			resultViewManager.setPreviewImage(imgId, result);
 			//resultViewManager.getQueryTextView().setText(R.string.none);
 			//resultViewManager.setItemClickEnabled(true);
-		} else if(tag.equals(WSManager.TAG_GET_FULL_IMAGE)) {
+		} else if(tag.equals(UITImageRetrievalServer.TAG_GET_FULL_IMAGE)) {
 			// save image
-			saveImage(result);
+			ImageTools.saveImage(result);
 		    Toast.makeText(this, "Image " + imgId + ": saved to downloads directory !", Toast.LENGTH_SHORT).show();
 		    resultViewManager.updateDownloadedState(imgId);
 		}
@@ -292,7 +319,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 					
 					regionView.setRegion(ViewTools.getImageRectInView(selectImageView));
 					
-					wsManager.executeQueryRequest(img);
+					wsManager.executeUITQueryRequest(this,img);
 					this.onQuerying();
 					this.onRegionConfirmed(img);
 					//selectedImageView.setVisibility(View.VISIBLE);
@@ -312,18 +339,6 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     	photoPickerIntent.setType("image/*");
     	this.startActivityForResult(photoPickerIntent, SELECT_PHOTO);
     }
-    
-    public void saveImage(Bitmap bm) {
-		FileOutputStream out;
-		try {
-			File f = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-			String outFile = f.toString() + "/issearch_" + StringTools.getRandomNumberString(10) + ".jpg";
-		    out = new FileOutputStream(outFile);
-		    bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
-		} catch (Exception e) {
-		    e.printStackTrace();
-		    Toast.makeText(this,e.getMessage(), Toast.LENGTH_LONG).show();
-		}
-    }
+
 
 }

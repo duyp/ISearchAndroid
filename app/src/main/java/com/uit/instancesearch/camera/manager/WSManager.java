@@ -1,193 +1,44 @@
 package com.uit.instancesearch.camera.manager;
 
-import java.io.IOException;
+import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
+import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
+import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
-
-import com.uit.instancesearch.camera.listener.WebServiceListener;
-import com.uit.instancesearch.camera.tools.Encoder;
-
-import android.app.Service;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.util.Base64;
-import android.util.Log;
-import android.widget.Toast;
 
 public class WSManager {
-	
-	public static final String TAG_QUERY = "query";
-	
-	public static final String TAG_GET_FULL_IMAGE = "get-full";
-	public static final String TAG_GET_PREVIEW_IMAGE = "get-preview";
-	public static final String TAG_GET_THUMBNAIL_IMAGE = "get-thumbnail";
-	
-	//private static final String URL = "http://phamduy.ddns.net:8080/InstanceSearch/services/ISService?wsdl";
-	//private static final String URL = "http://192.168.0.101:8080/InstanceSearch/services/ISService?wsdl";
-	private static final String URL = "http://192.168.24.59:8080/InstanceSearch/services/ISService?wsdl";
-	public static final String NAMESPACE = "http://services.instancesearch.uit.com";
-	public static final String SOAP_ACTION_PREFIX = "/";
-	
-	private static final String METHOD = "clientQueryRequest";
-	private static final String METHOD_TEST = "testConnection";
-	
-	public static final int MAX_IMAGE_PER_REQUEST = 9;
-	
-	WebServiceListener wsListener;
+
+	public static int SERVER_UIT = 123;
+	public static int SERVER_GOOGLE = 321;
+
 	Context context;
 	
 	boolean cancelled;
-	ServiceRunner runner;
+
+	ProcessingServer server;
 	
-	public WSManager(Context c, WebServiceListener wsl){
-		wsListener = wsl;
+	public WSManager(Context c, ProcessingServer sv){
 		context = c;
 		cancelled = false;
+		server = sv;
 	}
-	
-	public void executeQueryRequest(Bitmap bm) {
-		cancelled = false;
-		String image = Encoder.encodeBitmap(bm);
-		runner = new ServiceRunner("Xperia Z", image, TAG_QUERY);
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			runner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-		} else {
-			runner.execute();
+
+	public void executeUITQueryRequest(UITWebServiceListener wsListener, Bitmap bm) {
+		if (server instanceof  UITImageRetrievalServer) {
+			((UITImageRetrievalServer)server).executeQueryRequest(bm);
 		}
 	}
-	
-	public void executeImageRequest(String requestTag, String[] imageIds) {
-		//Log.d("debug", "Request image: "+imageId);
-		String requestContent = "";
-		for (int i = 0; i < imageIds.length - 1; i++) {
-			requestContent += imageIds[i] + ",";
-		}
-		requestContent += imageIds[imageIds.length - 1];
-		
-		runner = new ServiceRunner("Xperia Z", requestContent, requestTag); // test
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			runner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-		} else {
-			runner.execute();
+
+	public void executeUITImageRequest(UITWebServiceListener wsListener, String requestTag, String[] imageIds) {
+		if (server instanceof  UITImageRetrievalServer) {
+			((UITImageRetrievalServer)server).executeImageRequest(requestTag,imageIds);
 		}
 	}
 	
 	public void cancelExecute() {
-		cancelled = true;
-		runner.cancel(true);
+		if (server != null)
+			server.cancelExecute();
 	}
-	
-	private class ServiceRunner extends AsyncTask<String, String, String>{
 
-		private String name;
-		
-		private String requestContent;
-		private String requestTag;
-
-		protected ServiceRunner(String name, String requestContent, String requestTag) {
-			this.name = name;
-			this.requestContent = requestContent;
-			this.requestTag = requestTag;
-		}
-		
-		@Override
-		protected String doInBackground(String... params) {
-			//publishProgress(new String[] {"info", "Uploading image..."});
-			
-				SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-				SoapObject request = new SoapObject(NAMESPACE,METHOD);
-				request.addProperty("name", name);
-				request.addProperty("requestTag",requestTag);
-				request.addProperty("queryImageContent",requestContent);
-				
-				// test connection
-//				SoapObject request = new SoapObject(NAMESPACE,METHOD_TEST);
-//				request.addProperty("input", "Xperia Z test connection");
-				
-				envelope.bodyOut = request;
-				
-				HttpTransportSE transport = new HttpTransportSE(URL);
-				long time = System.currentTimeMillis();
-				try {
-					transport.call(NAMESPACE+SOAP_ACTION_PREFIX+METHOD, envelope);
-				} catch (XmlPullParserException e) {
-					e.printStackTrace();
-					publishProgress(new String[] {"err", "Connection problem. Please try again!"});
-				} catch (IOException e) {
-					publishProgress(new String[] {"err", "Connection problem. Please try again!"});
-				}
-				
-				if (envelope.bodyIn != null && !cancelled) {
-					// calculate respond time
-					time = System.currentTimeMillis() - time;
-					//publishProgress(new String[] {"info","Respone Time: " + time + "ms"});
-					SoapObject resultSoap = (SoapObject)envelope.bodyIn;
-					// if error
-					if (resultSoap.getProperty(0).toString().equals("err")) {
-						publishProgress(new String[] {"err", "Tag: " + requestTag + " " +resultSoap.getProperty(1).toString()});
-					} else {
-						if (requestTag.equals(TAG_QUERY)) {
-							//publishProgress(new String[] {"info","Respone Time: " + time + "ms"});
-							int count = resultSoap.getPropertyCount();
-							if (count < 1) {
-								publishProgress(new String[] {"err", "Processing server error"});
-							} else {
-								int nRankedList = Integer.valueOf(resultSoap.getProperty(0).toString());
-								if (nRankedList == 0) {
-									publishProgress(new String[] {"err","No result found!"});
-								} else {
-									String[] rankedList = new String[nRankedList];
-									for(int i = 1; i <= nRankedList; i++) {
-										rankedList[i-1] = resultSoap.getProperty(i).toString();
-									}
-									publishProgress(rankedList);
-									for(int i = nRankedList + 1; i < count; i++) {
-										// tag, imageId, image content
-										publishProgress(new String[] {"image",requestTag,rankedList[i-nRankedList-1],resultSoap.getProperty(i).toString()});
-									}
-								}
-							}
-						} else if (requestTag.equals(TAG_GET_PREVIEW_IMAGE) || requestTag.equals(TAG_GET_FULL_IMAGE)){ // preview || full image
-							// tag, imageId, image content
-							publishProgress(new String[] {"image",requestTag,requestContent,resultSoap.getProperty(0).toString()});
-						} else { // thumbnails
-							int count = resultSoap.getPropertyCount();
-							String[] ids = requestContent.split(",");
-							for (int i = 0; i < count; i++) {
-								publishProgress(new String[] {"image",requestTag,ids[i],resultSoap.getProperty(i).toString()});
-							}
-						}
-					}
-				} else {
-					if (!isCancelled()) publishProgress(new String[]{"err", "Server not responding. Please try again!"});
-				}
-			return "OK";
-		}
-		
-		@Override
-		protected void onProgressUpdate(String... s) {
-			if (cancelled) return;
-			
-			String action = s[0];
-			if (action.equals("image")) {
-				byte[] b = Base64.decode(s[3], Base64.DEFAULT);
-				Bitmap result = BitmapFactory.decodeByteArray(b, 0, b.length);
-				wsListener.onImageRecieved(s[1], s[2], result);
-			} else if (action.equals("info")){
-				Toast.makeText(context, "info:" + s[1], Toast.LENGTH_SHORT).show();
-			} else if (action.equals("err")) {
-				Toast.makeText(context, "error: " + s[1], Toast.LENGTH_SHORT).show();
-				wsListener.onConnectionError();
-			} else { // ranked list
-				wsListener.onServerRespond(s);
-			}
-		}
-	}
 }

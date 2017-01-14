@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.uit.instancesearch.camera.CameraActivity;
 import com.uit.instancesearch.camera.ImagePagerAdapter;
+import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.ResultView;
 import com.uit.instancesearch.camera.listener.ActionListener;
@@ -171,7 +172,7 @@ public class UITResultViewManager implements ResultListener {
 		int pos = imagePager.getCurrentItem();
 		String imgId = manager.getImageId(pos);
 		if (!manager.isDownloaded(imgId))	{
-			listener.onRequestImage(WSManager.TAG_GET_FULL_IMAGE, new String[] {imgId});
+			listener.onRequestImage(UITImageRetrievalServer.TAG_GET_FULL_IMAGE, new String[] {imgId});
 			Toast.makeText(mainActivity, "Downloading image ...", Toast.LENGTH_SHORT).show();
 		} else {
 			Toast.makeText(mainActivity, "Just downloaded !", Toast.LENGTH_SHORT).show();
@@ -219,8 +220,8 @@ public class UITResultViewManager implements ResultListener {
 		} else if (position == manager.getThumbnailCount() + manager.getLoadingThumbCount()) { // click for get more image
 			int remaining = manager.getRankedListCount() - manager.getThumbnailCount();
 			int nImage = remaining;
-			if (remaining > WSManager.MAX_IMAGE_PER_REQUEST) {
-				nImage = WSManager.MAX_IMAGE_PER_REQUEST;
+			if (remaining > UITImageRetrievalServer.MAX_IMAGE_PER_REQUEST) {
+				nImage = UITImageRetrievalServer.MAX_IMAGE_PER_REQUEST;
 			}
 			manager.setLoadingThumbCount(nImage);
 			resultView.invalidateResult();
@@ -230,7 +231,7 @@ public class UITResultViewManager implements ResultListener {
 			for(int i = 0; i < nImage; i++) {
 				imageIds[i] = manager.getRankAt(manager.getThumbnailCount() + i);
 			}
-			listener.onRequestImage(WSManager.TAG_GET_THUMBNAIL_IMAGE, imageIds);
+			listener.onRequestImage(UITImageRetrievalServer.TAG_GET_THUMBNAIL_IMAGE, imageIds);
 		} else {
 			
 		}
@@ -244,7 +245,7 @@ public class UITResultViewManager implements ResultListener {
 	
 	private void requestPreviewImage(int position) {
 		String[] imageId = new String[] {manager.getImageId(position)};
-		listener.onRequestImage(WSManager.TAG_GET_PREVIEW_IMAGE, imageId);
+		listener.onRequestImage(UITImageRetrievalServer.TAG_GET_PREVIEW_IMAGE, imageId);
 	}
 	
 	public void showResultMenu() {

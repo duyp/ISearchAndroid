@@ -3,12 +3,14 @@ package com.uit.instancesearch.camera.manager;
 import java.util.List;
 
 import com.uit.instancesearch.camera.CameraPreview;
+import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
+import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.RegionSelectionView;
+import com.uit.instancesearch.camera.listener.GoogleServiceListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
-import com.uit.instancesearch.camera.listener.WebServiceListener;
+import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,7 +23,6 @@ import android.hardware.Camera.Size;
 import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 public class CameraManager {
 	
@@ -38,8 +39,10 @@ public class CameraManager {
 	boolean flashOn;
 	
 	static Context context;
-	
-	WebServiceListener wsListener;
+
+	ProcessingServer server;
+	UITWebServiceListener uitListener;
+	GoogleServiceListener googleListener;
 	RegionSelectListener rsListener;
 	
 	// capture
@@ -55,10 +58,14 @@ public class CameraManager {
 				}
 				bm = scaleBitmap(bm);
 				System.out.println("Extract data Time: " + (System.currentTimeMillis() - t) + "ms");
-				wsManager.executeQueryRequest(bm);
-				wsListener.onQuerying();
+				if (server instanceof UITImageRetrievalServer) { // for UIT server
+					wsManager.executeUITQueryRequest(uitListener, bm);
+					uitListener.onQuerying();
+				} else { // for GOOGLE server
+
+				}
 				rsListener.onRegionConfirmed(bm);
-				
+
 			}
 		};
 		
@@ -70,9 +77,12 @@ public class CameraManager {
 		context = c;
 		//initialize();
 	}
-	
-	public void initialize(WebServiceListener l, RegionSelectListener l1) {
-		wsListener = l;
+
+	// MUST call this
+	public void initialize(ProcessingServer ps, RegionSelectListener l1, UITWebServiceListener uitL, GoogleServiceListener gL) {
+		server = ps;
+		uitListener = uitL;
+		googleListener = gL;
 		rsListener = l1;
 		setCameraFocus(mCamera);
 		flashOn = false;

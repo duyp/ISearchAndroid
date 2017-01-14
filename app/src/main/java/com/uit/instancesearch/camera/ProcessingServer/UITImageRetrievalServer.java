@@ -8,8 +8,8 @@ import android.os.Build;
 import android.util.Base64;
 import android.widget.Toast;
 
-import com.uit.instancesearch.camera.listener.WebServiceListener;
-import com.uit.instancesearch.camera.tools.Encoder;
+import com.uit.instancesearch.camera.listener.UITWebServiceListener;
+import com.uit.instancesearch.camera.tools.ImageTools;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -23,7 +23,7 @@ import java.io.IOException;
  * Created by m on 15/01/2017.
  */
 
-public class UITImageRetrievalServer {
+public class UITImageRetrievalServer extends ProcessingServer {
     public static final String TAG_QUERY = "query";
 
     public static final String TAG_GET_FULL_IMAGE = "get-full";
@@ -42,19 +42,19 @@ public class UITImageRetrievalServer {
     public static final int MAX_IMAGE_PER_REQUEST = 9;
 
 
-    WebServiceListener wsListener;
+    UITWebServiceListener wsListener;
     Context context;
     ServiceRunner runner;
     boolean cancelled = true;
 
-    public UITImageRetrievalServer(Context c, WebServiceListener listener) {
+    public UITImageRetrievalServer(Context c, UITWebServiceListener listener) {
         context = c;
         this.wsListener = listener;
     }
 
     public void executeQueryRequest(Bitmap bm) {
         cancelled = false;
-        String image = Encoder.encodeBitmap(bm);
+        String image = ImageTools.encodeBitmap(bm);
         runner = new ServiceRunner("Xperia Z", image, TAG_QUERY);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             runner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -79,6 +79,7 @@ public class UITImageRetrievalServer {
         }
     }
 
+    @Override
     public void cancelExecute() {
         cancelled = true;
         if (runner!=null) runner.cancel(true);
