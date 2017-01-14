@@ -33,7 +33,7 @@ import com.uit.instancesearch.camera.listener.ResultListener;
 import com.uit.instancesearch.camera.listener.ResultTouchListener;
 import com.uit.instancesearch.camera.tools.StringTools;
 
-public class ResultViewManager implements ResultListener {
+public class UITResultViewManager implements ResultListener {
 
 	ResultView 			resultView;
 
@@ -57,7 +57,7 @@ public class ResultViewManager implements ResultListener {
 	
 	boolean isPagerShown = false;
 	
-	public ResultViewManager(CameraActivity mainActivity) {
+	public UITResultViewManager(CameraActivity mainActivity) {
 		this.mainActivity = mainActivity;
 		
 		queryImageView = new ImageView(mainActivity);

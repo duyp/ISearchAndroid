@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.util.Base64;
 import android.util.Log;
 
-public class Encoder {
+public class ImageTools {
 
 	public static String encodeBitmap(Bitmap bm){
 		if (bm == null) return null;
