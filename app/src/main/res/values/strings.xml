@@ -7,4 +7,6 @@
 	<string name="none"></string>
 	<string name="cancel">Cancel</string>
 	<string name="loading">Loading&#8230; Please wait!</string>
+	<string name="uit_server">UIT Image Retrieval System</string>
+	<string name="google_server">Google Image Annotation</string>
 </resources>

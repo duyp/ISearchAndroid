@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="server_list">
+        <item>@string/uit_server</item>
+        <item>@string/google_server</item>
+    </array>
+
+</resources>
