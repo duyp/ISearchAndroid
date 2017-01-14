@@ -18,7 +18,13 @@ ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/
 uses-sdk
 ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:20.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/AndroidManifest.xml:16:5-42
-MERGED from [com.android.support:support-v4:20.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/AndroidManifest.xml:16:5-42
+MERGED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.0.2/AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:9:9-38
 		INJECTED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml
@@ -50,7 +56,12 @@ ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/
 application
 ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:18:5-37:19
 MERGED from [com.android.support:appcompat-v7:20.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/AndroidManifest.xml:17:5-19
-MERGED from [com.android.support:support-v4:20.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/AndroidManifest.xml:17:5-19
+MERGED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.2/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.0.0] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:21:9-41
 	android:allowBackup
@@ -79,3 +90,45 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:34:17-77
 	android:name
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:34:27-74
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:21:9-24:46
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:23:19-52
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:24:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:22:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:21:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:28:9-31:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:31:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.2/AndroidManifest.xml:29:13-58
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/AndroidManifest.xml:20:19-85
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:7:9-11:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:8:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:10:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:11:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.2/AndroidManifest.xml:9:13-58
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:9.0.2] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/AndroidManifest.xml:22:13-58

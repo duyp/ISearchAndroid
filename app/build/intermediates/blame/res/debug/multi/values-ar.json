@@ -6,9 +6,9 @@
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
+                    "startOffset": 105,
                     "endColumn": 116,
-                    "endOffset": 167
+                    "endOffset": 217
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -25,9 +25,9 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 172,
+                    "startOffset": 222,
                     "endColumn": 103,
-                    "endOffset": 271
+                    "endOffset": 321
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -44,9 +44,9 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 276,
+                    "startOffset": 326,
                     "endColumn": 108,
-                    "endOffset": 380
+                    "endOffset": 430
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -63,9 +63,9 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 385,
+                    "startOffset": 435,
                     "endColumn": 81,
-                    "endOffset": 462
+                    "endOffset": 512
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -82,9 +82,9 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 467,
+                    "startOffset": 517,
                     "endColumn": 100,
-                    "endOffset": 563
+                    "endOffset": 613
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -101,9 +101,9 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 568,
+                    "startOffset": 618,
                     "endColumn": 113,
-                    "endOffset": 677
+                    "endOffset": 727
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -120,9 +120,9 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 682,
+                    "startOffset": 732,
                     "endColumn": 104,
-                    "endOffset": 782
+                    "endOffset": 832
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -139,9 +139,9 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 787,
+                    "startOffset": 837,
                     "endColumn": 100,
-                    "endOffset": 883
+                    "endOffset": 933
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -158,9 +158,9 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 888,
+                    "startOffset": 938,
                     "endColumn": 95,
-                    "endOffset": 979
+                    "endOffset": 1029
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -177,9 +177,9 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 984,
+                    "startOffset": 1034,
                     "endColumn": 107,
-                    "endOffset": 1087
+                    "endOffset": 1137
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -196,9 +196,9 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1092,
+                    "startOffset": 1142,
                     "endColumn": 102,
-                    "endOffset": 1190
+                    "endOffset": 1240
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -215,9 +215,9 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1195,
+                    "startOffset": 1245,
                     "endColumn": 102,
-                    "endOffset": 1293
+                    "endOffset": 1343
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -234,9 +234,9 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1298,
+                    "startOffset": 1348,
                     "endColumn": 118,
-                    "endOffset": 1412
+                    "endOffset": 1462
                 },
                 "from": {
                     "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values-ar/values.xml",
@@ -246,6 +246,595 @@
                         "startOffset": 1299,
                         "endColumn": 118,
                         "endOffset": 1413
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1467,
+                    "endColumn": 254,
+                    "endOffset": 1717
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 323,
+                        "endColumn": 254,
+                        "endOffset": 573
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1722,
+                    "endColumn": 124,
+                    "endOffset": 1842
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 578,
+                        "endColumn": 124,
+                        "endOffset": 698
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1847,
+                    "endColumn": 175,
+                    "endOffset": 2018
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 703,
+                        "endColumn": 175,
+                        "endOffset": 874
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 2023,
+                    "endColumn": 123,
+                    "endOffset": 2142
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 879,
+                        "endColumn": 123,
+                        "endOffset": 998
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 2147,
+                    "endColumn": 130,
+                    "endOffset": 2273
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 1003,
+                        "endColumn": 130,
+                        "endOffset": 1129
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 2278,
+                    "endColumn": 202,
+                    "endOffset": 2476
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 1134,
+                        "endColumn": 202,
+                        "endOffset": 1332
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2481,
+                    "endColumn": 210,
+                    "endOffset": 2687
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 1337,
+                        "endColumn": 210,
+                        "endOffset": 1543
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2692,
+                    "endColumn": 129,
+                    "endOffset": 2817
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1548,
+                        "endColumn": 129,
+                        "endOffset": 1673
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2822,
+                    "endColumn": 173,
+                    "endOffset": 2991
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1678,
+                        "endColumn": 173,
+                        "endOffset": 1847
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2996,
+                    "endColumn": 121,
+                    "endOffset": 3113
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1852,
+                        "endColumn": 121,
+                        "endOffset": 1969
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 3118,
+                    "endColumn": 157,
+                    "endOffset": 3271
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1974,
+                        "endColumn": 157,
+                        "endOffset": 2127
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 3276,
+                    "endColumn": 119,
+                    "endOffset": 3391
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 2132,
+                        "endColumn": 119,
+                        "endOffset": 2247
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 3396,
+                    "endColumn": 130,
+                    "endOffset": 3522
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 2252,
+                        "endColumn": 130,
+                        "endOffset": 2378
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 3527,
+                    "endColumn": 181,
+                    "endOffset": 3704
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 2383,
+                        "endColumn": 181,
+                        "endOffset": 2560
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 3709,
+                    "endColumn": 148,
+                    "endOffset": 3853
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 2565,
+                        "endColumn": 148,
+                        "endOffset": 2709
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 3858,
+                    "endColumn": 166,
+                    "endOffset": 4020
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 2714,
+                        "endColumn": 166,
+                        "endOffset": 2876
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 4025,
+                    "endColumn": 126,
+                    "endOffset": 4147
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 2881,
+                        "endColumn": 126,
+                        "endOffset": 3003
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 4152,
+                    "endColumn": 177,
+                    "endOffset": 4325
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 3008,
+                        "endColumn": 177,
+                        "endOffset": 3181
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 33,
+                    "startColumn": 4,
+                    "startOffset": 4330,
+                    "endColumn": 124,
+                    "endOffset": 4450
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 3186,
+                        "endColumn": 124,
+                        "endOffset": 3306
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 4455,
+                    "endColumn": 241,
+                    "endOffset": 4692
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 323,
+                        "endColumn": 241,
+                        "endOffset": 560
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 4697,
+                    "endColumn": 237,
+                    "endOffset": 4930
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 3311,
+                        "endColumn": 237,
+                        "endOffset": 3544
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 4935,
+                    "endColumn": 121,
+                    "endOffset": 5052
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 3549,
+                        "endColumn": 121,
+                        "endOffset": 3666
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 5057,
+                    "endColumn": 105,
+                    "endOffset": 5158
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 3671,
+                        "endColumn": 105,
+                        "endOffset": 3772
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 38,
+                    "startColumn": 4,
+                    "startOffset": 5163,
+                    "endColumn": 180,
+                    "endOffset": 5339
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 3777,
+                        "endColumn": 180,
+                        "endOffset": 3953
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 5344,
+                    "endColumn": 123,
+                    "endOffset": 5463
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 3958,
+                        "endColumn": 123,
+                        "endOffset": 4077
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 5468,
+                    "endColumn": 197,
+                    "endOffset": 5661
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 4082,
+                        "endColumn": 197,
+                        "endOffset": 4275
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 5666,
+                    "endColumn": 135,
+                    "endOffset": 5797
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 4280,
+                        "endColumn": 135,
+                        "endOffset": 4411
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 5802,
+                    "endColumn": 175,
+                    "endOffset": 5973
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 4416,
+                        "endColumn": 175,
+                        "endOffset": 4587
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 5978,
+                    "endColumn": 93,
+                    "endOffset": 6067
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 4592,
+                        "endColumn": 93,
+                        "endOffset": 4681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 6072,
+                    "endColumn": 95,
+                    "endOffset": 6163
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 4686,
+                        "endColumn": 95,
+                        "endOffset": 4777
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 45,
+                    "startColumn": 4,
+                    "startOffset": 6168,
+                    "endColumn": 112,
+                    "endOffset": 6276
+                },
+                "from": {
+                    "file": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.2/res/values-ar/values.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 4782,
+                        "endColumn": 112,
+                        "endOffset": 4890
                     }
                 }
             }

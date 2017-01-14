@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_textfield_search_selected_holo_light.9.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_textfield_search_selected_holo_light.9.png"
+    },
+    {
+        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png",
+        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_ic_menu_moreoverflow_normal_holo_dark.png"
     },
     {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_spinner_ab_focused_holo_light.9.png",
@@ -20,12 +20,12 @@
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_camera_on.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_ic_search.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_ic_search.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_ab_bottom_solid_dark_holo.9.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_ab_bottom_solid_dark_holo.9.png"
+    },
+    {
+        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_ic_search.png",
+        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/drawable-xhdpi/abc_ic_search.png"
     },
     {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_cab_background_bottom_holo_dark.9.png",

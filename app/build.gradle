@@ -22,4 +22,17 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.android.support:appcompat-v7:20.0.0'
     compile files('libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar')
+
+    // google vision dependencies
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-base:9.0.2'
+    compile 'com.google.android.gms:play-services-auth:9.0.2'
+    compile 'com.google.apis:google-api-services-vision:v1-rev16-1.22.0'
+    compile ('com.google.api-client:google-api-client-android:1.22.0') {
+        exclude module: 'httpclient'
+    }
+    compile ('com.google.http-client:google-http-client-gson:1.20.0') {
+        exclude module: 'httpclient'
+    }
 }
