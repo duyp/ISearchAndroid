@@ -6,7 +6,8 @@ import com.uit.instancesearch.camera.CameraPreview;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.RegionSelectionView;
-import com.uit.instancesearch.camera.listener.GoogleServiceListener;
+import com.uit.instancesearch.camera.listener.ActionListener;
+import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
 import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 
@@ -41,10 +42,8 @@ public class CameraManager {
 	static Context context;
 
 	ProcessingServer server;
-	UITWebServiceListener uitListener;
-	GoogleServiceListener googleListener;
 	RegionSelectListener rsListener;
-	
+	ActionListener actionListener;
 	// capture
 	private PictureCallback mPicture = new PictureCallback() {
 			
@@ -59,13 +58,12 @@ public class CameraManager {
 				bm = scaleBitmap(bm);
 				System.out.println("Extract data Time: " + (System.currentTimeMillis() - t) + "ms");
 				if (server instanceof UITImageRetrievalServer) { // for UIT server
-					wsManager.executeUITQueryRequest(uitListener, bm);
-					uitListener.onQuerying();
+					wsManager.executeUITQueryRequest(bm);
 				} else { // for GOOGLE server
-
+					wsManager.executeGoogleVisionImageRequest(bm);
 				}
 				rsListener.onRegionConfirmed(bm);
-
+				actionListener.onQuerying();
 			}
 		};
 		
@@ -79,11 +77,10 @@ public class CameraManager {
 	}
 
 	// MUST call this
-	public void initialize(ProcessingServer ps, RegionSelectListener l1, UITWebServiceListener uitL, GoogleServiceListener gL) {
+	public void initialize(ProcessingServer ps, RegionSelectListener l1, ActionListener al) {
 		server = ps;
-		uitListener = uitL;
-		googleListener = gL;
 		rsListener = l1;
+		actionListener = al;
 		setCameraFocus(mCamera);
 		flashOn = false;
 		params = mCamera.getParameters();

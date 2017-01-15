@@ -3,17 +3,14 @@ package com.uit.instancesearch.camera;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
-import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServer;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.listener.ActionListener;
-import com.uit.instancesearch.camera.listener.GoogleServiceListener;
+import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
 import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 import com.uit.instancesearch.camera.manager.CameraManager;
@@ -50,7 +47,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
         UITWebServiceListener,
         ActionListener,
         ServersDialogFragment.ServersDialogListener,
-        GoogleServiceListener {
+        GoogleCloudVisionListener {
 
     private static final int REQUEST_SELECT_PHOTO = 100;
     public static final int REQUEST_ACCOUNT_AUTHORIZATION = 42;
@@ -98,14 +95,11 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     }
 
     public void onServersDialogPositiveClick(DialogFragment dialog, int chosenServer) {
-        Toast.makeText(this, chosenServer == WSManager.SERVER_UIT ?
-                R.string.uit_server : R.string.google_server, Toast.LENGTH_SHORT);
         selectedServer = chosenServer;
         if (chosenServer == WSManager.SERVER_UIT) {
             server = new UITImageRetrievalServer(this, this);
             initialize();
         } else {
-            server = new GoogleImageAnnotationServer();
             pickAccount();
         }
     }
@@ -124,8 +118,10 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     }
 
     public void onTokenReceived() {
-        if(googleAccountManager.getAccessToken() != null) {
-            Toast.makeText(this,googleAccountManager.getAccessToken(),Toast.LENGTH_SHORT);
+        String accessToken = googleAccountManager.getAccessToken();
+        if(accessToken != null) {
+            Toast.makeText(this,accessToken,Toast.LENGTH_SHORT);
+            server = new GoogleImageAnnotationServer(this,accessToken);
             initialize();
             accessTokenGetting = false;
         }
@@ -180,7 +176,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 
             // initialize Camera manager
             cameraManager = new CameraManager(this, camera, cPreview, regionView, wsManager);
-            cameraManager.initialize(server, this, this, this);
+            cameraManager.initialize(server, this, this);
             //menu view
             menuView = (MenuView) this.findViewById(R.id.menu_view);
             // selected view
@@ -263,6 +259,12 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
         //regionView.setVisibility(View.VISIBLE);
     }
 
+    // GOOGLE listener
+    @Override
+    public void onCloudVisionResponse(BatchAnnotateImagesResponse response) {
+        Toast.makeText(this,"GOOGLE RESPOND",Toast.LENGTH_LONG);
+    }
+
     // UIT Web Service listener
     @Override
     public void onServerRespond(String[] rankedList) {
@@ -283,7 +285,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     public void onRequestImage(String requestTag, String[] imageIds) {
         //resultViewManager.setItemClickEnabled(false);
         //resultViewManager.getQueryTextView().setText(R.string.loading);
-        wsManager.executeUITImageRequest(this, requestTag, imageIds);
+        wsManager.executeUITImageRequest(requestTag, imageIds);
     }
 
     @Override
@@ -295,7 +297,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     }
 
     @Override
-    public void onImageRecieved(String tag, String imgId, Bitmap result) {
+    public void onImageReceived(String tag, String imgId, Bitmap result) {
         if (tag.equals(UITImageRetrievalServer.TAG_QUERY) ||
                 tag.equals(UITImageRetrievalServer.TAG_GET_THUMBNAIL_IMAGE)) {
             resultViewManager.addThumbnailImage(imgId, result); // add thumbnail with image id
@@ -360,7 +362,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 
                         regionView.setRegion(ViewTools.getImageRectInView(selectImageView));
 
-                        wsManager.executeUITQueryRequest(this, img);
+                        wsManager.executeUITQueryRequest(img);
                         this.onQuerying();
                         this.onRegionConfirmed(img);
                         //camera.release();

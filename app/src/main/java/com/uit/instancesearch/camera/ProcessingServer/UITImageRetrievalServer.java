@@ -52,9 +52,10 @@ public class UITImageRetrievalServer extends ProcessingServer {
         this.wsListener = listener;
     }
 
+    @Override
     public void executeQueryRequest(Bitmap bm) {
         cancelled = false;
-        String image = ImageTools.encodeBitmap(bm);
+        String image = ImageTools.encodeBitmapToString(bm);
         runner = new ServiceRunner("Xperia Z", image, TAG_QUERY);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             runner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -180,7 +181,7 @@ public class UITImageRetrievalServer extends ProcessingServer {
             if (action.equals("image")) {
                 byte[] b = Base64.decode(s[3], Base64.DEFAULT);
                 Bitmap result = BitmapFactory.decodeByteArray(b, 0, b.length);
-                wsListener.onImageRecieved(s[1], s[2], result);
+                wsListener.onImageReceived(s[1], s[2], result);
             } else if (action.equals("info")){
                 Toast.makeText(context, "info:" + s[1], Toast.LENGTH_SHORT).show();
             } else if (action.equals("err")) {

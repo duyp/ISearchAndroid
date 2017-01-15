@@ -9,20 +9,35 @@ import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 
+import com.google.api.services.vision.v1.model.Image;
+
 public class ImageTools {
 
-	public static String encodeBitmap(Bitmap bm){
+	public static String encodeBitmapToString(Bitmap bm){
 		if (bm == null) return null;
 		
 		long t = System.currentTimeMillis();
 		ByteArrayOutputStream obj = new ByteArrayOutputStream();
+
+		// compress
 		bm.compress(Bitmap.CompressFormat.JPEG, 30, obj);
+
 		byte[] byteArray = obj .toByteArray();
 		String result = Base64.encodeToString(byteArray, Base64.DEFAULT);
 		Log.d("debug","Encode Time: " + (System.currentTimeMillis() - t) + "ms");
 		Log.d("debug","Data size: " + result.length() / 1024 +"kB");
 		return result;
 	}
+
+	public static Image getBase64EncodedJpeg(Bitmap bitmap) {
+		Image image = new Image();
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
+		byte[] imageBytes = byteArrayOutputStream.toByteArray();
+		image.encodeContent(imageBytes);
+		return image;
+	}
+
 
 	public static void saveImage(Bitmap bm) {
 		FileOutputStream out;

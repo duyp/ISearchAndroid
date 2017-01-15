@@ -1,7 +1,9 @@
 package com.uit.instancesearch.camera.manager;
 
+import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServer;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
+import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
 import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 
 import android.content.Context;
@@ -24,15 +26,21 @@ public class WSManager {
 		server = sv;
 	}
 
-	public void executeUITQueryRequest(UITWebServiceListener wsListener, Bitmap bm) {
+	public void executeUITQueryRequest(Bitmap bm) {
 		if (server instanceof  UITImageRetrievalServer) {
-			((UITImageRetrievalServer)server).executeQueryRequest(bm);
+			server.executeQueryRequest(bm);
 		}
 	}
 
-	public void executeUITImageRequest(UITWebServiceListener wsListener, String requestTag, String[] imageIds) {
+	public void executeUITImageRequest(String requestTag, String[] imageIds) {
 		if (server instanceof  UITImageRetrievalServer) {
 			((UITImageRetrievalServer)server).executeImageRequest(requestTag,imageIds);
+		}
+	}
+
+	public void executeGoogleVisionImageRequest(Bitmap bm) {
+		if (server instanceof GoogleImageAnnotationServer) {
+			server.executeQueryRequest(bm);
 		}
 	}
 	

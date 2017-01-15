@@ -6,4 +6,5 @@ public interface ActionListener {
 	public void onSelectImage();
 	public void onRequestImage(String requestTag, String[] imageIds);
 	public void onCompleted(); // on completed a query session
+	void onQuerying();
 }
