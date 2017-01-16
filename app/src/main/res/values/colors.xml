@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
     <color name="Transparent0">#FF000000</color>
     <color name="Transparent10">#E6000000</color>
     <color name="Transparent20">#CC000000</color>
@@ -38,5 +41,14 @@
     <color name="gray30">#B3303030</color>
     <color name="gray20">#CC303030</color>
     <color name="gray10">#E6303030</color>
-    
+
+
+    <color name="colorPrimary">#aaaaaa</color>
+    <color name="colorPrimaryDark">#aaaaaa</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#eeeeee</color>
+
+
 </resources>

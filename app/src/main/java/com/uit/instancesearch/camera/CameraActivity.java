@@ -18,12 +18,17 @@ import com.uit.instancesearch.camera.manager.GoogleAccountManager;
 import com.uit.instancesearch.camera.manager.UITResultViewManager;
 import com.uit.instancesearch.camera.manager.WSManager;
 import com.uit.instancesearch.camera.tools.ImageTools;
+import com.uit.instancesearch.camera.tools.StringTools;
 import com.uit.instancesearch.camera.tools.ViewTools;
 
+import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Application;
 import android.app.DialogFragment;
+import android.content.pm.PackageManager;
 import android.os.Process;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -52,6 +57,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     private static final int REQUEST_SELECT_PHOTO = 100;
     public static final int REQUEST_ACCOUNT_AUTHORIZATION = 42;
     private static final int REQUEST_PICK_ACCOUNT = 41;
+    private static final int REQUEST_ACCOUNT_PERMISSION = 43;
 
     CameraManager cameraManager;    // camera manager
     WSManager wsManager;        // web services manager
@@ -74,12 +80,15 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
 
     GoogleAccountManager googleAccountManager;
 
+    // temp
+    Bitmap queryImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Remove title bar
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -100,7 +109,27 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
             server = new UITImageRetrievalServer(this, this);
             initialize();
         } else {
-            pickAccount();
+            // request Account permission
+            ActivityCompat.requestPermissions(CameraActivity.this,
+                    new String[] {Manifest.permission.GET_ACCOUNTS},
+                    REQUEST_ACCOUNT_PERMISSION);
+            // pickAccount();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ACCOUNT_PERMISSION:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(CameraActivity.this, "Permission Granded!", Toast.LENGTH_SHORT).show();
+                    pickAccount();
+                } else {
+                    Toast.makeText(CameraActivity.this, "Permission Denied!", Toast.LENGTH_SHORT).show();
+                    System.exit(1);
+                }
         }
     }
 
@@ -130,10 +159,9 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     @Override
     protected void onStop() {
         super.onPause();
-        if (!imageSelecting && !accessTokenGetting) {
-            releaseCamera();
-            Process.killProcess(Process.myPid());
-        }
+//        if (!imageSelecting && !accessTokenGetting) {
+//            releaseCamera();
+//        }
     }
 
     @Override
@@ -142,7 +170,13 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
         if (imageSelecting) {
             camera.stopPreview();
         }
+        onCompleteAction();
         //camera = CameraManager.getCameraInstance();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Process.killProcess(Process.myPid());
     }
 
     @Override
@@ -231,10 +265,11 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
         cameraManager.setRegionSelected(regionRect);
     }
 
-
     @Override
     public void onRegionConfirmed(Bitmap croppedImage) {
+        queryImage = croppedImage;
         resultViewManager.setQueryImage(croppedImage);
+
     }
 
     @Override
@@ -251,10 +286,7 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     @Override
     public void onCompleted() {
         resultViewManager.hideResultView();
-        camera.startPreview();
-        cameraManager.resumeFlash();
-        showMenu();
-        regionView.setSelectEnabled(true);
+        onCompleteAction();
         //resultViewManager.clearResults();
         //regionView.setVisibility(View.VISIBLE);
     }
@@ -262,23 +294,41 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     // GOOGLE listener
     @Override
     public void onCloudVisionResponse(BatchAnnotateImagesResponse response) {
-        Toast.makeText(this,"GOOGLE RESPOND",Toast.LENGTH_LONG);
+        if (response != null) {
+            Toast.makeText(this, "GOOGLE RESPOND", Toast.LENGTH_LONG);
+            Intent intent = new Intent(this, GoogleVisionResultActivity.class);
+            intent.putExtra(GoogleVisionResultActivity.TAG_QUERY_IMAGE_STRING,
+                    ImageTools.encodeBitmapToString(queryImage));
+            intent.putExtra("respond-data", StringTools.convertVisionResponseToString(response));
+            startActivity(intent);
+        }
+        onRespondAction();
+    }
+
+    public void onRespondAction() {
+        regionView.doneScan();
+        if (imageSelecting) {
+            selectView.setVisibility(View.INVISIBLE);
+            imageSelecting = false;
+        }
+        hideMenu();
+        camera.startPreview();
+    }
+
+    public void onCompleteAction() {
+        camera.startPreview();
+        cameraManager.resumeFlash();
+        showMenu();
+        regionView.setSelectEnabled(true);
     }
 
     // UIT Web Service listener
     @Override
     public void onServerRespond(String[] rankedList) {
-        regionView.doneScan();
-
-        if (imageSelecting) {
-            selectView.setVisibility(View.INVISIBLE);
-            imageSelecting = false;
-        }
+        onRespondAction();
         resultViewManager.clearResults();
         resultViewManager.setResultRankedList(rankedList); // set ranked list
         resultViewManager.showResultView();
-        hideMenu();
-        camera.startPreview();
     }
 
     @Override
@@ -292,8 +342,8 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
     public void onQuerying() {
         regionView.startScan();
         regionView.setSelectEnabled(false);
-        hideMenu();
-        Toast.makeText(this, "Analyzing... Press back to cancel.", Toast.LENGTH_SHORT).show();
+        //hideMenu();
+        //Toast.makeText(this, "Analyzing... Press back to cancel.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -355,14 +405,19 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
                     try {
                         InputStream imageStream = this.getContentResolver().openInputStream(selectedImage);
                         Bitmap img = BitmapFactory.decodeStream(imageStream);
-                        img = CameraManager.scaleBitmap(img);
 
                         selectView.setVisibility(View.VISIBLE);
                         selectImageView.setImageBitmap(img);
 
                         regionView.setRegion(ViewTools.getImageRectInView(selectImageView));
 
-                        wsManager.executeUITQueryRequest(img);
+                        if (server instanceof UITImageRetrievalServer) { // for UIT server
+                            img = CameraManager.scaleBitmap(img);
+                            wsManager.executeUITQueryRequest(img);
+                        } else { // for GOOGLE server
+                            wsManager.executeGoogleVisionImageRequest(img);
+                        }
+                        queryImage = img;
                         this.onQuerying();
                         this.onRegionConfirmed(img);
                         //camera.release();
@@ -377,12 +432,16 @@ public class CameraActivity extends ActionBarActivity implements RegionSelectLis
                     String email = intent.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
                     AccountManager am = AccountManager.get(this);
                     // MUST check permission for android 6
-                    Account[] accounts = am.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
-                    for (Account a : accounts) {
-                        if (a.name.equals(email))  {
-                            connectGoogleAccount(a);
-                            return;
+                    try {
+                        Account[] accounts = am.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
+                        for (Account a : accounts) {
+                            if (a.name.equals(email))  {
+                                connectGoogleAccount(a);
+                                return;
+                            }
                         }
+                    } catch (SecurityException e) {
+                        e.printStackTrace();
                     }
                 }
                 Toast.makeText(this, "PLEASE SELECT AN ACCOUNT AGAIN !", Toast.LENGTH_SHORT).show();

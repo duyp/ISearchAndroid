@@ -10,6 +10,7 @@ import com.uit.instancesearch.camera.listener.ActionListener;
 import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
 import com.uit.instancesearch.camera.listener.UITWebServiceListener;
+import com.uit.instancesearch.camera.tools.ViewTools;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,8 +28,8 @@ import android.view.WindowManager;
 
 public class CameraManager {
 	
-	static final int MAX_WIDTH = 500;
-	static final int MAX_HEIGHT = 500;
+	static final int MAX_WIDTH = 1000;
+	static final int MAX_HEIGHT = 1000;
 	
 	Camera mCamera;
 	Camera.Parameters params;
@@ -54,16 +55,18 @@ public class CameraManager {
 				Rect r = regionView.getRegion();
 				if (r != null) {
 					bm = cropBitmap(bm, r);
+				} else {
+					Rect rect = new Rect(0,0,bm.getWidth(),bm.getHeight());
+					regionView.setRegion(rect);
 				}
-				bm = scaleBitmap(bm);
-				System.out.println("Extract data Time: " + (System.currentTimeMillis() - t) + "ms");
+//				//bm = scaleBitmap(bm);
+				rsListener.onRegionConfirmed(bm);
+				actionListener.onQuerying();
 				if (server instanceof UITImageRetrievalServer) { // for UIT server
 					wsManager.executeUITQueryRequest(bm);
 				} else { // for GOOGLE server
 					wsManager.executeGoogleVisionImageRequest(bm);
 				}
-				rsListener.onRegionConfirmed(bm);
-				actionListener.onQuerying();
 			}
 		};
 		

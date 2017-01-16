@@ -41,7 +41,6 @@ public class UITImageRetrievalServer extends ProcessingServer {
 
     public static final int MAX_IMAGE_PER_REQUEST = 9;
 
-
     UITWebServiceListener wsListener;
     Context context;
     ServiceRunner runner;

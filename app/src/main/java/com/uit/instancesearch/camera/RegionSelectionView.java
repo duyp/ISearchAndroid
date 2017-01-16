@@ -20,6 +20,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -30,9 +31,18 @@ public class RegionSelectionView extends View {
 	static final int MIN_WIDTH = 100;
 	static final int MIN_HEIGHT = 100;
 	static final int DEFAULT_SIZE = 400;
+
+	static final int RIGHT_TO_LEFT = 0;
+	static final int LEFT_TO_RIGHT = 1;
 	
 	static final float RECT_STROKE = 5.0f;
-	
+
+	public static Drawable GRADIENT_RL = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT,
+													new int[]{Color.argb(0, 0, 255, 255), Color.argb(0x60, 0, 255, 255)});
+	public static Drawable GRADIENT_LR = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
+									  new int[]{Color.argb(0, 0, 255, 255), Color.argb(0x60, 0, 255, 255)});
+
+
 	private Rect regionRect;
 	
 	private final Paint paint;
@@ -52,13 +62,11 @@ public class RegionSelectionView extends View {
 	private boolean selectEnabled;
 	boolean closeEnabled;
 	
-	private Canvas mCanvas;
-	
 	int widthLimited;
 	
 	private RegionSelectListener listener;
 	
-	AsynTaskScanner scanner;
+	AsyncTaskScanner scanner;
 	
 	Context context;
 	
@@ -83,7 +91,6 @@ public class RegionSelectionView extends View {
 		
 		regionRect 		= null;
 		scanner			= null;
-		mCanvas			= null;
 		selected		= false;
 		pressed 		= false;
 		scanning		= false;
@@ -131,18 +138,21 @@ public class RegionSelectionView extends View {
 		return regionRect;
 	}
 	
-	public Canvas getCanvas() {
-		return mCanvas;
-	}
-	
 	public void setSelectEnabled(boolean enabled) {
 		selectEnabled = enabled;
 	}
-	
-	
+
+
+	Rect scanRect;
+	int scanDirection;
+
+	public void setScanRect(int direction, int p1x, int p1y, int p2x, int p2y) {
+		scanRect = new Rect(p1x,p1y,p2x,p2y);
+		scanDirection = direction;
+		invalidate();
+	}
 	@Override
 	public void onDraw(Canvas canvas) {
-		mCanvas = canvas;
 		if (regionRect == null) {
 			regionRect = new Rect(0, 0, canvas.getWidth(), canvas.getHeight());
 		}
@@ -165,14 +175,23 @@ public class RegionSelectionView extends View {
 			canvas.drawLine(regionRect.left, regionRect.bottom, regionRect.right, regionRect.bottom, paint);
 			canvas.drawLine(regionRect.left, regionRect.top, regionRect.left, regionRect.bottom, paint);
 			canvas.drawLine(regionRect.right, regionRect.top, regionRect.right, regionRect.bottom, paint);
-			
+
 		}
 		
 		if (selected && closeEnabled) {
 			//drawCloseButton(canvas);
 		}
 		
-//		if (scanning) {
+		if (scanning && scanRect!=null) {
+			if (scanDirection == RIGHT_TO_LEFT) { // right to left
+				GRADIENT_RL.setBounds(scanRect.left,scanRect.top,scanRect.right,scanRect.bottom);
+				GRADIENT_RL.draw(canvas);
+			} else {
+				GRADIENT_LR.setBounds(scanRect.left,scanRect.top,scanRect.right,scanRect.bottom);
+				GRADIENT_LR.draw(canvas);
+			}
+
+
 //			paint.setColor(Color.WHITE);
 //			int h = CameraManager.getScreenSize().y;
 //			int w = CameraManager.getScreenSize().x;
@@ -182,7 +201,7 @@ public class RegionSelectionView extends View {
 //			canvas.drawText("Cancel", canvas.getWidth() - w/5 - h/30, canvas.getHeight() - h/25, paint);
 //			closeButtonRect.set(canvas.getWidth() - w/10, canvas.getHeight() - h/10, canvas.getWidth() - h/30, canvas.getHeight() - h/50);
 //			canvas.drawBitmap(closeBm, closeBmRect, closeButtonRect.getRect(), paint);
-//		}
+		}
 		
 		if(!selected && !scanning) {
 			paint.setXfermode(clearFermode);
@@ -208,7 +227,7 @@ public class RegionSelectionView extends View {
 	
 	void closeRegion() {
 		selected = false;
-		regionRect.set(0, 0, mCanvas.getWidth(), mCanvas.getHeight());
+		regionRect.set(0, 0, this.getWidth(), this.getHeight());
 		invalidate();
 	}
 	
@@ -240,7 +259,7 @@ public class RegionSelectionView extends View {
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void startScan() {
 		//showAnalyzingDialog();
-		scanner = new AsynTaskScanner();
+		scanner = new AsyncTaskScanner();
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			scanner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		} else {
@@ -270,9 +289,9 @@ public class RegionSelectionView extends View {
 		}
 	}
 	
-	private class AsynTaskScanner extends AsyncTask<Void, Void, Void> {
+	private class AsyncTaskScanner extends AsyncTask<Void, Void, Void> {
 
-		static final int JUMP = 10; // px
+		static final int JUMP = 20; // determine scanning speed
 		static final int SLEEP_TIME = 30; // ms
 		static final int LINE_WIDTH = 100;
 		
@@ -281,31 +300,33 @@ public class RegionSelectionView extends View {
 		
 		boolean stop;
 		int direction;
-		
+
 		Drawable rlGradient;
 		Drawable lrGradient;
-		
-		public AsynTaskScanner() {
-			p1 = new Point(regionRect.left, regionRect.top);
-			p2 = new Point(regionRect.left, regionRect.bottom);
-			stop = false;
-			direction = 0;
-			
-			rlGradient = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT,
-	        		new int[] {Color.argb (0, 0, 255, 255), Color.argb (0x60, 0, 255, 255) });
-			lrGradient = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-	        		new int[] {Color.argb (0, 0, 255, 255), Color.argb (0x60, 0, 255, 255) });
+
+		public AsyncTaskScanner() {
+			if (regionRect != null) {
+				p1 = new Point(regionRect.left, regionRect.top);
+				p2 = new Point(regionRect.left, regionRect.bottom);
+				stop = false;
+				direction = RIGHT_TO_LEFT;
+
+				rlGradient = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT,
+						new int[]{Color.argb(0, 0, 255, 255), Color.argb(0x60, 0, 255, 255)});
+				lrGradient = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
+						new int[]{Color.argb(0, 0, 255, 255), Color.argb(0x60, 0, 255, 255)});
+			}
 		}
 
 		@Override
 		protected Void doInBackground(Void... params) {
 			//mCanvas.save();
 			while(!stop) {
-				if (direction == 0) { // right to left
+				if (direction == RIGHT_TO_LEFT) { // right to left
 					if (p1.x - JUMP < regionRect.left) {
 						p1.x = regionRect.left;
 						p2.x = regionRect.left;
-						direction = 1;
+						direction = LEFT_TO_RIGHT;
 					} else {
 						p1.x = p1.x - JUMP;
 						p2.x = p2.x - JUMP;
@@ -314,7 +335,7 @@ public class RegionSelectionView extends View {
 					if (p1.x + JUMP > regionRect.right) {
 						p1.x = regionRect.right;
 						p2.x = regionRect.right;
-						direction = 0;
+						direction = RIGHT_TO_LEFT;
 					} else {
 						p1.x = p1.x + JUMP;
 						p2.x = p2.x + JUMP;
@@ -329,20 +350,21 @@ public class RegionSelectionView extends View {
 			}
 			return null;
 		}
-
 		
 		@Override
 		protected void onProgressUpdate(Void...params) {
 			if (!stop) {
-				if (direction == 0) {
+				if (direction == RIGHT_TO_LEFT) {
 					int x;
 					if (p2.x + LINE_WIDTH > regionRect.right) {
 						x = regionRect.right;
 					} else {
 						x = p2.x + LINE_WIDTH;
 					}
-				    rlGradient.setBounds(p1.x, p1.y, x, p2.y);
-				    rlGradient.draw (mCanvas);
+					setScanRect(direction, p1.x, p1.y, x, p2.y);
+				    //rlGradient.setBounds(p1.x, p1.y, x, p2.y);
+					//Log.w("SCANNER", lrGradient.getBounds().toString());
+				    //rlGradient.draw (mCanvas);
 				} else {
 					int x;
 					if (p1.x - LINE_WIDTH < regionRect.left) {
@@ -350,8 +372,10 @@ public class RegionSelectionView extends View {
 					} else {
 						x = p1.x - LINE_WIDTH;
 					}
-					lrGradient.setBounds(x, p1.y, p2.x, p2.y);
-				    lrGradient.draw (mCanvas);
+					setScanRect(direction, x, p1.y, p2.x, p2.y);
+					//lrGradient.setBounds(x, p1.y, p2.x, p2.y);
+					//Log.w("SCANNER", lrGradient.getBounds().toString());
+					//lrGradient.draw (mCanvas);
 				}
 			}
 			invalidate();

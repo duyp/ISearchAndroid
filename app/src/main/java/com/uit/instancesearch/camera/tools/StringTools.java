@@ -1,10 +1,15 @@
 package com.uit.instancesearch.camera.tools;
 
+import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
+import com.google.api.services.vision.v1.model.EntityAnnotation;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -55,5 +60,48 @@ public class StringTools {
         }
         return outStr;
      }
-	
+
+    public static String convertVisionResponseToString(BatchAnnotateImagesResponse response) {
+        StringBuilder message = new StringBuilder("Results:\n\n");
+        message.append("Labels:\n");
+        List<EntityAnnotation> labels = response.getResponses().get(0).getLabelAnnotations();
+        if (labels != null) {
+            for (EntityAnnotation label : labels) {
+                message.append(String.format(Locale.getDefault(), "%.3f: %s",
+                        label.getScore(), label.getDescription()));
+                message.append("\n");
+            }
+        } else {
+            message.append("nothing\n");
+        }
+
+        message.append("Texts:\n");
+        List<EntityAnnotation> texts = response.getResponses().get(0)
+                .getTextAnnotations();
+        if (texts != null) {
+            for (EntityAnnotation text : texts) {
+                message.append(String.format(Locale.getDefault(), "%s: %s",
+                        text.getLocale(), text.getDescription()));
+                message.append("\n");
+            }
+        } else {
+            message.append("nothing\n");
+        }
+
+        message.append("Landmarks:\n");
+        List<EntityAnnotation> landmarks = response.getResponses().get(0)
+                .getLandmarkAnnotations();
+        if (landmarks != null) {
+            for (EntityAnnotation landmark : landmarks) {
+                message.append(String.format(Locale.getDefault(), "%.3f: %s",
+                        landmark.getScore(), landmark.getDescription()));
+                message.append("\n");
+            }
+        } else {
+            message.append("nothing\n");
+        }
+
+        return message.toString();
+    }
+
 }

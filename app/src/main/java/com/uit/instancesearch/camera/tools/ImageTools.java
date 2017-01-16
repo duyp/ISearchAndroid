@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
@@ -38,6 +39,10 @@ public class ImageTools {
 		return image;
 	}
 
+	public static Bitmap decodeStringToBitmap(String img) {
+		byte[] b = Base64.decode(img,Base64.DEFAULT);
+		return BitmapFactory.decodeByteArray(b,0,b.length);
+	}
 
 	public static void saveImage(Bitmap bm) {
 		FileOutputStream out;
