@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\Project data\Android studio\ISearchAndroid\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="E:\Project data\Android studio\ISearchAndroid\app\src\debug\jniLibs"/></dataSet></merger>

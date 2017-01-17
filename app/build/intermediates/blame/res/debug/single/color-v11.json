@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "E:\\Project data\\Android studio\\ISearchAndroid\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "E:\\Project data\\Android studio\\ISearchAndroid\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "E:\\Project data\\Android studio\\ISearchAndroid\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "E:\\Project data\\Android studio\\ISearchAndroid\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]
