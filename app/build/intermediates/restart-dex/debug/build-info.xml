@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86_64,x86"
+    abi="armeabi-v7a,armeabi"
     api-level="23"
-    density="xxhdpi"
+    density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="2552271801578"
-    token="3328658294777028213"
+    timestamp="11678815182992"
+    token="430581920708176306"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="499" />
+        duration="221" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="10" />
     <task
         name="verifier"
-        duration="1" />
+        duration="0" />
 
     <artifact
-        location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+        location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="2488822428813"
+        timestamp="11122069624693"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/outputs/apk/app-debug.apk"
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="2552271801578"
+        timestamp="11678815182992"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
             type="DEX" />
     </build>
 

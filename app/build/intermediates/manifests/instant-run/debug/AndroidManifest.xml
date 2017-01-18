@@ -28,7 +28,7 @@
         <!-- android:hardwareAccelerated="false" -->
 
         <activity
-            android:name="com.uit.instancesearch.camera.CameraActivity"
+            android:name="com.uit.instancesearch.camera.ui.CameraActivity"
             android:label="@string/title_activity_camera"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
@@ -49,12 +49,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.uit.instancesearch.camera.GoogleVisionResultActivity"
+            android:name="com.uit.instancesearch.camera.ui.GoogleVisionResultActivity"
             android:label="GoogleVisionResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name="com.uit.instancesearch.camera.TestTabActivity"
-            android:label="@string/title_activity_test_tab" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

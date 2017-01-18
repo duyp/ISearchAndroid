@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/menu/menu_test.xml",
+        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/menu/menu_test.xml"
+    },
+    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/menu/menu_test.xml",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/menu/menu_test.xml"
+    },
+    {
+        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/menu/menu_test_tab.xml",
+        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/menu/menu_test_tab.xml"
     },
     {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/menu/menu_test_tab.xml",
