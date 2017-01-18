@@ -1,4 +1,4 @@
-package com.uit.instancesearch.camera;
+package com.uit.instancesearch.camera.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,4 +1,4 @@
-package com.uit.instancesearch.camera;
+package com.uit.instancesearch.camera.ui.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.manager.WSManager;
 
 /**

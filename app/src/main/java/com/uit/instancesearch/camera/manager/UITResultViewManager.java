@@ -1,12 +1,7 @@
 package com.uit.instancesearch.camera.manager;
 
-import java.io.File;
-import java.io.FileOutputStream;
-
 import android.graphics.Bitmap;
-import android.os.Environment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -14,25 +9,20 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.uit.instancesearch.camera.CameraActivity;
-import com.uit.instancesearch.camera.ImagePagerAdapter;
+import com.uit.instancesearch.camera.ui.CameraActivity;
+import com.uit.instancesearch.camera.ui.ImagePagerAdapter;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
-import com.uit.instancesearch.camera.ResultView;
+import com.uit.instancesearch.camera.ui.ResultView;
 import com.uit.instancesearch.camera.listener.ActionListener;
 import com.uit.instancesearch.camera.listener.ResultListener;
-import com.uit.instancesearch.camera.listener.ResultTouchListener;
-import com.uit.instancesearch.camera.tools.StringTools;
 
 public class UITResultViewManager implements ResultListener {
 
@@ -273,14 +263,14 @@ public class UITResultViewManager implements ResultListener {
 	public void showResultView() {
 		// result view
 		ViewGroup.LayoutParams p = resultView.getLayoutParams();
-		p.width = CameraManager.getScreenSize().x*2/5;
+		p.width = MyCameraManager.getScreenSize().x*2/5;
 		resultView.setLayoutParams(p);
 		resultView.restart();
 		resultView.show();
 		
 		// query view
 		ViewGroup.LayoutParams p1 = queryView.getLayoutParams();
-		p1.width = CameraManager.getScreenSize().x - p.width;
+		p1.width = MyCameraManager.getScreenSize().x - p.width;
 		queryView.setLayoutParams(p1);
 		
 		//API 14

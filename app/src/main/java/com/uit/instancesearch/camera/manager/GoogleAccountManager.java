@@ -10,7 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
-import com.uit.instancesearch.camera.CameraActivity;
+import com.uit.instancesearch.camera.ui.CameraActivity;
 
 import java.io.IOException;
 

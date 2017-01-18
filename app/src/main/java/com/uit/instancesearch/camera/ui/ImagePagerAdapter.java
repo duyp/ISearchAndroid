@@ -1,4 +1,4 @@
-package com.uit.instancesearch.camera;
+package com.uit.instancesearch.camera.ui;
 
 import com.uit.instancesearch.camera.manager.ResultManager;
 

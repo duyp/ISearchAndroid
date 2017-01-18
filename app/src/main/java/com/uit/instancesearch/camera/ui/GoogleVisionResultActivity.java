@@ -1,4 +1,4 @@
-package com.uit.instancesearch.camera;
+package com.uit.instancesearch.camera.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 
+import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.tools.ImageTools;
 
 import java.util.ArrayList;

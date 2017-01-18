@@ -27,7 +27,7 @@
         <!-- android:hardwareAccelerated="false" -->
 
         <activity
-            android:name=".CameraActivity"
+            android:name=".ui.CameraActivity"
             android:label="@string/title_activity_camera"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -48,12 +48,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".GoogleVisionResultActivity"
+            android:name=".ui.GoogleVisionResultActivity"
             android:label="GoogleVisionResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".TestTabActivity"
-            android:label="@string/title_activity_test_tab"></activity>
     </application>
 
 </manifest>
