@@ -4,28 +4,8 @@
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_flash.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_loading.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_loading.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_flash.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_flash.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_flash_on.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_flash_on.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_camera.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_camera.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_close.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_close.png"
     },
     {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_upload.png",
@@ -44,10 +24,6 @@
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_close.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_camera_on.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_camera_on.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_plus.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_plus.png"
     },
@@ -56,27 +32,11 @@
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_upload.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_upload.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_download.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_download.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_plus.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_plus.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_loading.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xhdpi/ic_loading.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_download.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_download.png"
-    },
-    {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_camera.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/src/main/res/drawable-xhdpi/ic_camera.png"
     }
 ]

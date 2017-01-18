@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.uit.instancesearch.camera.listener.UITWebServiceListener;
@@ -31,8 +32,8 @@ public class UITImageRetrievalServer extends ProcessingServer {
     public static final String TAG_GET_THUMBNAIL_IMAGE = "get-thumbnail";
 
     //private static final String URL = "http://phamduy.ddns.net:8080/InstanceSearch/services/ISService?wsdl";
-    //private static final String URL = "http://192.168.0.101:8080/InstanceSearch/services/ISService?wsdl";
-    private static final String URL = "http://192.168.24.59:8080/InstanceSearch/services/ISService?wsdl";
+    private static final String URL = "http://192.168.1.123:8080/ISearchServices/services/ISService?wsdl";
+    //private static final String URL = "http://192.168.24.59:8080/InstanceSearch/services/ISService?wsdl";
     public static final String NAMESPACE = "http://services.instancesearch.uit.com";
     public static final String SOAP_ACTION_PREFIX = "/";
 
@@ -103,7 +104,9 @@ public class UITImageRetrievalServer extends ProcessingServer {
             //publishProgress(new String[] {"info", "Uploading image..."});
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+
             SoapObject request = new SoapObject(NAMESPACE,METHOD);
+
             request.addProperty("name", name);
             request.addProperty("requestTag",requestTag);
             request.addProperty("queryImageContent",requestContent);
@@ -128,9 +131,16 @@ public class UITImageRetrievalServer extends ProcessingServer {
             if (envelope.bodyIn != null && !this.isCancelled()) {
                 // calculate respond time
                 time = System.currentTimeMillis() - time;
-                //publishProgress(new String[] {"info","Respone Time: " + time + "ms"});
-                SoapObject resultSoap = (SoapObject)envelope.bodyIn;
-                // if error
+                //publishProgress(new String[] {"info","Response Time: " + time + "ms"});
+                SoapObject resultSoap;
+                try {
+                    resultSoap = (SoapObject) envelope.bodyIn;
+                } catch (Exception e) {
+                    publishProgress(new String[] {"err", "Problem parsing result!"});
+                    e.printStackTrace();
+                    return null;
+                }
+                    // if error
                 if (resultSoap.getProperty(0).toString().equals("err")) {
                     publishProgress(new String[] {"err", "Tag: " + requestTag + " " +resultSoap.getProperty(1).toString()});
                 } else {
@@ -139,7 +149,10 @@ public class UITImageRetrievalServer extends ProcessingServer {
                         int count = resultSoap.getPropertyCount();
                         if (count < 1) {
                             publishProgress(new String[] {"err", "Processing server error"});
-                        } else {
+                        } else if (count == 1) { //test connection
+                            //publishProgress(new String[] {"info", "Respond: " + resultSoap.getProperty(0).toString()});
+                        }
+                        else {
                             int nRankedList = Integer.valueOf(resultSoap.getProperty(0).toString());
                             if (nRankedList == 0) {
                                 publishProgress(new String[] {"err","No result found!"});
@@ -183,6 +196,7 @@ public class UITImageRetrievalServer extends ProcessingServer {
                 wsListener.onImageReceived(s[1], s[2], result);
             } else if (action.equals("info")){
                 Toast.makeText(context, "info:" + s[1], Toast.LENGTH_SHORT).show();
+                Log.w("TAG_UIT_SERVER",s[1]);
             } else if (action.equals("err")) {
                 Toast.makeText(context, "error: " + s[1], Toast.LENGTH_SHORT).show();
                 wsListener.onConnectionError();

@@ -1,7 +1,7 @@
-#Thu Jan 19 01:15:43 ICT 2017
-base.0=/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d603c6c56511faa1cdb3f88c52cd626a302a890b
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ae788488903719612f0b2975f05138861e6da421/classes.dex
-base.1=/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ae788488903719612f0b2975f05138861e6da421
-file.0=/home/m/Development/ProjectData/StudioProjects/ISearchCamera-API16-20/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d603c6c56511faa1cdb3f88c52cd626a302a890b/classes.dex
+#Thu Jan 19 01:42:17 ICT 2017
+base.0=/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a1de0c95ff42fc384051cf423623a3dce25f6be2
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d565dcfddd02bd5902385d98e08d2de96653aeb7/classes.dex
+base.1=/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d565dcfddd02bd5902385d98e08d2de96653aeb7
+file.0=/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a1de0c95ff42fc384051cf423623a3dce25f6be2/classes.dex
