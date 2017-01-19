@@ -291,15 +291,7 @@ public class RegionSelectionView extends View {
 			listener.onRegionCancelScan();
 		}
 	}
-	
-	public void doneScan() {
-		if (scanner != null) {
-			scanner.stopScan();
-			closeRegion();
-			scanning = false;
-		}
-	}
-	
+
 	private class AsyncTaskScanner extends AsyncTask<Void, Void, Void> {
 
 		static final int JUMP = 20; // determine scanning speed

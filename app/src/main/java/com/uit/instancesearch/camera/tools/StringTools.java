@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -61,8 +62,8 @@ public class StringTools {
         return outStr;
      }
 
-    public static String convertVisionResponseToString(BatchAnnotateImagesResponse response) {
-        StringBuilder message = new StringBuilder("Results:\n\n");
+    public static String[] convertVisionResponseToString(BatchAnnotateImagesResponse response) {
+        StringBuilder message = new StringBuilder("");
         message.append("Labels:\n");
         List<EntityAnnotation> labels = response.getResponses().get(0).getLabelAnnotations();
         if (labels != null) {
@@ -74,7 +75,10 @@ public class StringTools {
         } else {
             message.append("nothing\n");
         }
+        String result[] = new String[3];
+        result[0] = message.toString();
 
+        message = new StringBuilder("");
         message.append("Texts:\n");
         List<EntityAnnotation> texts = response.getResponses().get(0)
                 .getTextAnnotations();
@@ -87,7 +91,9 @@ public class StringTools {
         } else {
             message.append("nothing\n");
         }
+        result[1] = message.toString();
 
+        message = new StringBuilder("");
         message.append("Landmarks:\n");
         List<EntityAnnotation> landmarks = response.getResponses().get(0)
                 .getLandmarkAnnotations();
@@ -100,8 +106,8 @@ public class StringTools {
         } else {
             message.append("nothing\n");
         }
-
-        return message.toString();
+        result[2] = message.toString();
+        return result;
     }
 
 }

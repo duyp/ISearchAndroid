@@ -8,6 +8,7 @@ import com.uit.instancesearch.camera.listener.UITWebServiceListener;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.widget.Toast;
 
 public class WSManager {
 
@@ -39,6 +40,7 @@ public class WSManager {
 	}
 
 	public void executeGoogleVisionImageRequest(Bitmap bm) {
+		Toast.makeText(context,"Sending request to google server!",Toast.LENGTH_SHORT).show();
 		if (server instanceof GoogleImageAnnotationServer) {
 			server.executeQueryRequest(bm);
 		}

@@ -8,6 +8,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.Size;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 /** A basic Camera preview class */
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
@@ -58,23 +59,24 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
         // set preview size and make any resize, rotate or
         // reformatting changes here
-        
-        Camera.Parameters parameters = mCamera.getParameters();
-        List<Size> sizes = parameters.getSupportedPreviewSizes();
-        //for (Size s : sizes) {
-        //	System.out.println(s.width + "x" + s.height);
-        //}
-        Size optimalSize = getOptimalPreviewSize(sizes, getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels);
-        parameters.setPreviewSize(optimalSize.width, optimalSize.height);
-        mCamera.setParameters(parameters);
-        
-        // start preview with new settings
         try {
+            Camera.Parameters parameters = mCamera.getParameters();
+            List<Size> sizes = parameters.getSupportedPreviewSizes();
+            //for (Size s : sizes) {
+            //	System.out.println(s.width + "x" + s.height);
+            //}
+            Size optimalSize = getOptimalPreviewSize(sizes, getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels);
+            parameters.setPreviewSize(optimalSize.width, optimalSize.height);
+            mCamera.setParameters(parameters);
+
+            // start preview with new settings
             mCamera.setPreviewDisplay(mHolder);
             mCamera.startPreview();
 
         } catch (Exception e){
             //Log.d(TAG, "Error starting camera preview: " + e.getMessage());
+            Toast.makeText(this.getContext(),"Error starting camera preview: ",Toast.LENGTH_LONG);
+            e.printStackTrace();
         }
     }
     

@@ -10,6 +10,7 @@ import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServe
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
+import com.uit.instancesearch.camera.ui.dialog.MyCircleProgressBar;
 import com.uit.instancesearch.camera.ui.dialog.ServersDialogFragment;
 import com.uit.instancesearch.camera.listener.ActionListener;
 import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
@@ -40,6 +41,7 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -78,6 +80,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
 
     boolean imageSelecting = false;
     boolean accessTokenGetting = false;
+    boolean isShowResult = false;
 
     ProcessingServer server;
     int selectedServer;
@@ -86,6 +89,9 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
 
     // temp
     Bitmap queryImage;
+
+    long lastBackPressed = -1;
+    public static long PRESS_DELAY = 2000; // 2 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +105,6 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //set content view AFTER ABOVE sequence (to avoid crash)
-        this.setContentView(R.layout.activity_camera);
 
         // show server selection dialog
         showServerSelectionDialog();
@@ -128,6 +133,8 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
             ActivityCompat.requestPermissions(CameraActivity.this,
                     new String[] {Manifest.permission.GET_ACCOUNTS},
                     REQUEST_ACCOUNT_PERMISSION);
+        } else {
+            pickAccount();
         }
     }
 
@@ -174,59 +181,27 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
     private void connectGoogleAccount(Account a) {
         googleAccountManager = new GoogleAccountManager(a, this);
         googleAccountManager.getAuthToken();
+        MyCircleProgressBar.show(this,"Requesting Google access token...");
     }
 
     public void onTokenReceived() {
+        accessTokenGetting = false;
+        MyCircleProgressBar.dissmiss();
         String accessToken = googleAccountManager.getAccessToken();
         if(accessToken != null) {
             Toast.makeText(this,accessToken,Toast.LENGTH_SHORT);
             server = new GoogleImageAnnotationServer(this,accessToken);
-            accessTokenGetting = false;
             checkCameraPermission();
-         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onPause();
-//        if (!imageSelecting && !accessTokenGetting) {
-//            releaseCamera();
-//        }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        if (imageSelecting) {
-            camera.stopPreview();
+         } else {
+            Toast.makeText(this,"Cannot access to Google server!",Toast.LENGTH_SHORT).show();
+            showServerSelectionDialog();
         }
-        onCompleteAction();
-        //camera = MyCameraManager.getCameraInstance();
     }
-
-    @Override
-    protected void onDestroy() {
-        Process.killProcess(Process.myPid());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        super.onCreateOptionsMenu(menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return super.onOptionsItemSelected(item);
-    }
-
 
     // initialize necessary parameter
     private void initialize() {
+        this.setContentView(R.layout.activity_camera);
+
         wsManager = new WSManager(this, server);
         imageSelecting = false;
         camera = MyCameraManager.getCameraInstance();
@@ -262,6 +237,53 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         }
     }
 
+    @Override
+    protected void onStop() {
+        Log.d("TAG_DEBUG", "activity stop! ");
+        if (regionView!= null && regionView.isScanning()) {
+            regionView.stopScan();
+        }
+        if (wsManager != null) {
+            wsManager.cancelExecute();
+        }
+        super.onStop();
+//        if (!imageSelecting && !accessTokenGetting) {
+//            releaseCamera();
+//        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("TAG_DEBUG","Activity restarted!");
+        //camera.startPreview();
+        // camera = MyCameraManager.getCameraInstance();
+        if (imageSelecting) {
+        } else {
+            onCompleteAction();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        Process.killProcess(Process.myPid());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return super.onOptionsItemSelected(item);
+    }
+
     void hideMenu() {
         menuView.hideMenu();
         menuView.setTouchEnabled(false);
@@ -285,14 +307,29 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
 
     @Override
     public void onBackPressed() {
-        if (regionView.isScanning()) {
-            regionView.stopScan();
+        if (wsManager != null) {
             wsManager.cancelExecute();
-        } else if (regionView.isRegionSelected()) {
-            regionView.closeRegion();
-        } else if (resultViewManager.isShown()) {
-            this.onCompleted();
         }
+        if (accessTokenGetting) {
+            accessTokenGetting = false;
+            googleAccountManager.cancelExecute();
+            showServerSelectionDialog();
+        } else if (regionView != null && regionView.isScanning()) {
+                regionView.stopScan();
+        } else if (regionView != null && regionView.isRegionSelected()) {
+                regionView.closeRegion();
+        } else if (resultViewManager != null && resultViewManager.isShown()) {
+                this.onCompleted();
+        } else { // exit
+            long time = System.currentTimeMillis();
+            if (time - lastBackPressed > PRESS_DELAY) {
+                lastBackPressed = time;
+                Toast.makeText(this, "Press back again to exit!",Toast.LENGTH_SHORT).show();
+            } else {
+                Process.killProcess(Process.myPid());
+            }
+        }
+
     }
 
     @Override
@@ -319,6 +356,23 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
     }
 
     @Override
+    public void onQuerying() {
+        regionView.startScan();
+        regionView.setSelectEnabled(false);
+        hideMenu();
+        camera.stopPreview();
+        Toast.makeText(this, "Analyzing... Press back to cancel.", Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void onCompleteAction() {
+        camera.startPreview();
+        cameraManager.resumeFlash();
+        showMenu();
+        regionView.setSelectEnabled(true);
+    }
+
+    @Override
     public void onCompleted() {
         resultViewManager.hideResultView();
         onCompleteAction();
@@ -330,31 +384,28 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
     @Override
     public void onCloudVisionResponse(BatchAnnotateImagesResponse response) {
         if (response != null) {
-            Toast.makeText(this, "GOOGLE RESPOND", Toast.LENGTH_LONG);
+            Toast.makeText(this, "GOOGLE RESPOND", Toast.LENGTH_LONG).show();
+
             Intent intent = new Intent(this, GoogleVisionResultActivity.class);
             intent.putExtra(GoogleVisionResultActivity.TAG_QUERY_IMAGE_STRING,
                     ImageTools.encodeBitmapToString(queryImage));
-            intent.putExtra("respond-data", StringTools.convertVisionResponseToString(response));
+            intent.putExtra(GoogleVisionResultActivity.TAG_RESULT_STRING,
+                    StringTools.convertVisionResponseToString(response));
             startActivity(intent);
+
+            isShowResult = true;
         }
         onRespondAction();
     }
 
     public void onRespondAction() {
-        regionView.doneScan();
+        regionView.stopScan();
         if (imageSelecting) {
             selectView.setVisibility(View.INVISIBLE);
             imageSelecting = false;
         }
         hideMenu();
-        camera.startPreview();
-    }
-
-    public void onCompleteAction() {
-        camera.startPreview();
-        cameraManager.resumeFlash();
-        showMenu();
-        regionView.setSelectEnabled(true);
+        //camera.startPreview();
     }
 
     // UIT Web Service listener
@@ -371,15 +422,6 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         //resultViewManager.setItemClickEnabled(false);
         //resultViewManager.getQueryTextView().setText(R.string.loading);
         wsManager.executeUITImageRequest(requestTag, imageIds);
-    }
-
-    @Override
-    public void onQuerying() {
-        regionView.startScan();
-        regionView.setSelectEnabled(false);
-        hideMenu();
-        camera.stopPreview();
-        //Toast.makeText(this, "Analyzing... Press back to cancel.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -441,7 +483,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
                     try {
                         InputStream imageStream = this.getContentResolver().openInputStream(selectedImage);
                         Bitmap img = BitmapFactory.decodeStream(imageStream);
-
+                        img = MyCameraManager.scaleBitmap(img);
                         selectView.setVisibility(View.VISIBLE);
                         selectImageView.setImageBitmap(img);
 
@@ -459,6 +501,9 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
                         //camera.release();
                         //selectedImageView.setVisibility(View.VISIBLE);
                     } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (OutOfMemoryError e) {
+                        Toast.makeText(this,"Error when loading image",Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }

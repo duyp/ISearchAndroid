@@ -2576,8 +2576,8 @@ containing a value of this type.
         public static final int fill_vertical=0x7f0c0022;
         public static final int fixed=0x7f0c0040;
         public static final int gresult_imageView=0x7f0c0095;
-        public static final int gresult_listView=0x7f0c0096;
         public static final int gresult_tabs=0x7f0c007b;
+        public static final int gresult_textView=0x7f0c0096;
         public static final int gresult_viewpager=0x7f0c007c;
         public static final int home=0x7f0c0004;
         public static final int homeAsUp=0x7f0c000f;

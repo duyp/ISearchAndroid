@@ -739,8 +739,8 @@ int id fill_horizontal 0x7f0c002f
 int id fill_vertical 0x7f0c0022
 int id fixed 0x7f0c0040
 int id gresult_imageView 0x7f0c0095
-int id gresult_listView 0x7f0c0096
 int id gresult_tabs 0x7f0c007b
+int id gresult_textView 0x7f0c0096
 int id gresult_viewpager 0x7f0c007c
 int id home 0x7f0c0004
 int id homeAsUp 0x7f0c000f

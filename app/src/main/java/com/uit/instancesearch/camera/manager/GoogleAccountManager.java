@@ -25,6 +25,7 @@ public class GoogleAccountManager {
     Account account;
     Activity mActivity;
     AccountManager am;
+    GetTokenTask getTokenTask;
 
     private String accessToken;
 
@@ -36,7 +37,8 @@ public class GoogleAccountManager {
     }
 
     public void getAuthToken() {
-        new GetTokenTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        getTokenTask = new GetTokenTask();
+        getTokenTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     public String getAccessToken() {
@@ -46,6 +48,10 @@ public class GoogleAccountManager {
     // MUST Implements for Android 6 (v23)
     public void requestAccountPermission(CameraActivity activity) {
         ActivityCompat.requestPermissions(activity, new String[] {Manifest.permission.GET_ACCOUNTS}, REQUEST_PERMISSION_CODE);
+    }
+
+    public void cancelExecute() {
+        if (getTokenTask!= null && !getTokenTask.isCancelled()) getTokenTask.cancel(true);
     }
 
     private class GetTokenTask extends AsyncTask<Void, String, String> {
@@ -59,8 +65,10 @@ public class GoogleAccountManager {
 
         @Override
         protected void onPostExecute(String result) {
-            accessToken = result;
-            ((CameraActivity)mActivity).onTokenReceived();
+            if (!isCancelled()) {
+                accessToken = result;
+                ((CameraActivity)mActivity).onTokenReceived();
+            }
         }
 
         String fetchToken() {

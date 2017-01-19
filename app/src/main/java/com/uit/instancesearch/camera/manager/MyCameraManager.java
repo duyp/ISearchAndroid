@@ -23,8 +23,8 @@ import android.os.Build;
 
 public class MyCameraManager {
 	
-	static final int MAX_WIDTH = 1000;
-	static final int MAX_HEIGHT = 1000;
+	static final int MAX_WIDTH = 800;
+	static final int MAX_HEIGHT = 800;
 	
 	Camera mCamera;
 	Camera.Parameters params;
@@ -54,7 +54,7 @@ public class MyCameraManager {
 					Rect rect = new Rect(0,0,bm.getWidth(),bm.getHeight());
 					regionView.setRegion(rect);
 				}
-//				//bm = scaleBitmap(bm);
+				bm = scaleBitmap(bm);
 				rsListener.onRegionConfirmed(bm);
 				actionListener.onQuerying();
 				if (server instanceof UITImageRetrievalServer) { // for UIT server
@@ -62,6 +62,7 @@ public class MyCameraManager {
 				} else { // for GOOGLE server
 					wsManager.executeGoogleVisionImageRequest(bm);
 				}
+				flashChange(false);
 			}
 		};
 		
@@ -175,9 +176,8 @@ public class MyCameraManager {
 	public void flashChange(boolean flashOn) {
 		this.flashOn = flashOn;
 		params = mCamera.getParameters();
-		params.setFlashMode(flashOn ? Camera.Parameters.FLASH_MODE_TORCH : Camera.Parameters.FLASH_MODE_OFF);
+		params.setFlashMode(flashOn ? Camera.Parameters.FLASH_MODE_ON : Camera.Parameters.FLASH_MODE_OFF);
 		mCamera.setParameters(params);
-		//Toast.makeText(context, flashOn + "-", Toast.LENGTH_SHORT).show();
 	}
 	
 	public void pauseFlash() {
@@ -191,7 +191,7 @@ public class MyCameraManager {
 	public void resumeFlash() {
 		if (flashOn) {
 			params = mCamera.getParameters();
-			params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+			params.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
 			mCamera.setParameters(params);
 		}
 	}
