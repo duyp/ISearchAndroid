@@ -8,12 +8,12 @@
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xxhdpi/ic_loading.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_close.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xxhdpi/ic_close.png"
-    },
-    {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_camera_on.png",
         "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xxhdpi/ic_camera_on.png"
+    },
+    {
+        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_close.png",
+        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-xxhdpi/ic_close.png"
     },
     {
         "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_camera.png",

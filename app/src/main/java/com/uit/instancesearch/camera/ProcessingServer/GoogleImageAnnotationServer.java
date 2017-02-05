@@ -16,7 +16,6 @@ import com.google.api.services.vision.v1.model.BatchAnnotateImagesRequest;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.google.api.services.vision.v1.model.Feature;
 import com.uit.instancesearch.camera.listener.GoogleCloudVisionListener;
-import com.uit.instancesearch.camera.manager.GoogleAccountManager;
 import com.uit.instancesearch.camera.tools.ImageTools;
 
 import java.io.IOException;
@@ -32,13 +31,17 @@ public class GoogleImageAnnotationServer extends ProcessingServer {
     public final static String TYPE_LABEL_DETECTION = "LABEL_DETECTION";
     public final static String TYPE_TEXT_DETECTION = "TEXT_DETECTION";
     public final static String TYPE_LANDMARK_DETECTION = "LANDMARK_DETECTION";
+    public final static String TYPE_LOGO_DETECTION = "LOGO_DETECTION";
+    public final static String TYPE_SAFE_SEARCH_DETECTION = "SAFE_SEARCH_DETECTION";
+    public final static String TYPE_FACE_DETECTION = "FACE_DETECTION";
 
     GoogleCloudVisionListener listener;
 
     GoogleCredential credential;
     JsonFactory jsonFactory;
 
-    CloudVisionRunner runner;
+    CloudVisionRunner runner; // using google library
+
 
     public GoogleImageAnnotationServer(GoogleCloudVisionListener gl, String accessToken) {
         credential = new GoogleCredential().setAccessToken(accessToken);
@@ -52,10 +55,11 @@ public class GoogleImageAnnotationServer extends ProcessingServer {
         runner.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    public void onResponse(BatchAnnotateImagesResponse response) {
-        listener.onCloudVisionResponse(response);
+    public void onRespond(BatchAnnotateImagesResponse response) {
+        listener.onCloudVisionRespond(response);
         runner = null;
     }
+
 
     @Override
     public void cancelExecute() {
@@ -119,9 +123,7 @@ public class GoogleImageAnnotationServer extends ProcessingServer {
 
         @Override
         protected void onPostExecute(BatchAnnotateImagesResponse response) {
-            onResponse(response);
+            onRespond(response);
         }
     }
-
-
 }

@@ -61,9 +61,10 @@ public class MyCircleProgressBar {
         pDialog.show();
     }
 
-    public static void dissmiss() {
+    public static void dismiss() {
         running = false;
         if (pDialog != null) pDialog.dismiss();
+        pDialog = null;
     }
 
 }

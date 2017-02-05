@@ -118,14 +118,14 @@ MERGED from [com.google.android.gms:play-services-basement:10.0.1] /home/m/Devel
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:48:13-66
 	android:name
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:47:13-58
-activity#com.uit.instancesearch.camera.ui.GoogleVisionResultActivity
+activity#com.uit.instancesearch.camera.ui.GoogleVisionResult.GoogleVisionResultActivity
 ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:50:9-53:75
 	android:label
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:52:13-55
 	android:theme
 		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:53:13-63
 	android:name
-		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:51:13-58
+		ADDED from /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/AndroidManifest.xml:51:13-77
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:10.0.1] /home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/AndroidManifest.xml:20:9-189
 	android:excludeFromRecents

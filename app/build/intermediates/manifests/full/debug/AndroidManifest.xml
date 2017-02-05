@@ -48,7 +48,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.uit.instancesearch.camera.ui.GoogleVisionResultActivity"
+            android:name="com.uit.instancesearch.camera.ui.GoogleVisionResult.GoogleVisionResultActivity"
             android:label="GoogleVisionResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

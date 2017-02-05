@@ -5,36 +5,73 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="17914130638264"
+    timestamp="6782559897277"
     token="3328658294777028213"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="308" />
+        duration="371" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="16" />
+        duration="17" />
     <task
         name="verifier"
         duration="0" />
 
     <artifact
-        location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+        location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="17735170179430"
+        timestamp="227222804481"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="17914130638264"
+        timestamp="967882031085"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="2921299508666"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="6705577002032"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="6782559897277"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="9065627715895"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"

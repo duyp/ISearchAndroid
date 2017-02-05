@@ -19,4 +19,6 @@
     -->
     <dimen name="navigation_drawer_width">240dp</dimen>
 
+    <dimen name="face_item_height">25dp</dimen>
+
 </resources>

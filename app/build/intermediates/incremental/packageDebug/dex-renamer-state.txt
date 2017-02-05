@@ -1,4 +1,4 @@
-#Thu Jan 19 19:11:18 ICT 2017
+#Wed Jan 25 12:55:48 ICT 2017
 base.0=/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a1de0c95ff42fc384051cf423623a3dce25f6be2
 renamed.1=classes2.dex
 renamed.0=classes.dex

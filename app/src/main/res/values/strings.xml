@@ -17,4 +17,26 @@
     <string name="landmark_detection">Landmark Detection</string>
     <string name="label_detection">Label Detection</string>
     <string name="text_detection">Text Detection</string>
+    <string name="safesearch_detection">Safe Search</string>
+    <string name="face_detection">Face Detection</string>
+    <string name="logo_detection">Logo Detection</string>
+    
+    <string name="likelihood_joy">Joy</string>
+    <string name="likelihood_sorrow">Sorrow</string>
+    <string name="likelihood_anger">Anger</string>
+    <string name="likelihood_surprise">Surprise</string>
+    <string name="likelihood_exposed">Exposed</string>
+    <string name="likelihood_blurred">Blurred</string>
+    <string name="likelihood_headwear">Headwear</string>
+    <string name="face_roll">Roll:</string>
+    <string name="face_tilt">Tilt:</string>
+    <string name="face_pan">Pan:</string>
+    <string name="detect_confidence">Detection Confidence</string>
+    <string name="landmarking_confidence">Landmarking Confidence</string>
+
+    <string name="safesearch_adult">Adult</string>
+    <string name="safesearch_violence">Violence</string>
+    <string name="safesearch_medical">Medical</string>
+    <string name="safesearch_spoof">Proof</string>
+
 </resources>

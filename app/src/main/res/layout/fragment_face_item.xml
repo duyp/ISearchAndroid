@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="FACE nth"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/faceNumTextView"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Name -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/faceNameLayout"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_tall_divider"
+            android:layout_alignParentLeft="true">
+
+            <!-- Joy value -->
+            <TextView
+                android:text="@string/likelihood_joy"
+                android:layout_height="@dimen/face_item_height"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView10"/>
+
+            <!-- Sorrow value -->
+            <TextView
+                android:text="@string/likelihood_sorrow"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView11"/>
+
+            <!-- Anger value -->
+            <TextView
+                android:text="@string/likelihood_anger"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView12"/>
+
+            <!-- Surprise value -->
+            <TextView
+                android:text="@string/likelihood_surprise"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView13"/>
+
+            <!-- Exposed value -->
+            <TextView
+                android:text="@string/likelihood_exposed"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView14"/>
+
+            <!-- Blurred value -->
+            <TextView
+                android:text="@string/likelihood_blurred"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView15"/>
+
+            <!-- Headwear value -->
+            <TextView
+                android:text="@string/likelihood_headwear"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/textView16"/>
+
+        </LinearLayout>
+
+
+        <!-- Value textview -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/faceValueLayout"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_tall_divider">
+
+            <!-- Joy value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceJoyTextView"/>
+
+            <!-- Sorrow value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceSorrowTextView"/>
+
+            <!-- Anger value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceAngerTextView"/>
+
+            <!-- Surprise value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceSurpriseTextView"/>
+
+            <!-- Exposed value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceExposedTextView"/>
+
+            <!-- Blurred value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceBlurredTextView"/>
+
+            <!-- Headwear value -->
+            <TextView
+                android:text="value"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceHeadwearTextView"/>
+        </LinearLayout>
+
+
+        <!-- progress bar values -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/faceProgressLayout"
+            android:layout_toRightOf="@id/faceNameLayout"
+            android:layout_toLeftOf="@id/faceValueLayout"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_tall_divider">
+
+            <!-- Joy value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:id="@+id/faceJoyProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height" />
+
+            <!-- Sorrow value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceSorrowProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <!-- Anger value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceAngerProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <!-- Surprise value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceSurpriseProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <!-- Exposed value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceExposedProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <!-- Blurred value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceBlurredProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <!-- Headwear value -->
+            <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/face_item_height"
+                android:id="@+id/faceHeadwearProgressBar"
+                android:max="100"
+                android:progress="80"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Roll, Tilt and Pan value -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:text="2*"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/faceRollTextView"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:text="2*"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/facePanTextView"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:text="2*"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/faceTiltTextView"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_toRightOf="@id/faceRollTextView"
+            android:layout_toLeftOf="@id/facePanTextView"/>
+
+    </RelativeLayout>
+
+
+    <!-- Detection confidence value -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/detect_confidence"
+            android:id="@+id/faceDetectionName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/Cyan" />
+
+        <TextView
+            android:text="Percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/Cyan"
+            android:layout_toRightOf="@id/faceDetectionName"
+            android:id="@+id/faceDetectionScore" />
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/faceDetectionScore"
+            android:id="@+id/faceDetectionProgressBar"
+            android:max="100"
+            android:progress="80" />
+    </RelativeLayout>
+
+
+    <!-- Landmarking confidence value-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:text="@string/landmarking_confidence"
+        android:id="@+id/faceLandmarkingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/Cyan" />
+
+    <TextView
+        android:text="Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/Cyan"
+        android:layout_toRightOf="@id/faceLandmarkingName"
+        android:id="@+id/faceLandmarkingScore" />
+
+    <ProgressBar
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/faceLandmarkingScore"
+        android:id="@+id/faceLandmarkingProgressBar"
+        android:max="100"
+        android:progress="80" />
+    </RelativeLayout>
+</LinearLayout>

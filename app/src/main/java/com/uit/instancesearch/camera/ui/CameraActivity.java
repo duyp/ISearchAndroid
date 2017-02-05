@@ -6,10 +6,13 @@ import java.io.InputStream;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
+import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationObject.GoogleVisionResultData;
 import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServer;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
+import com.uit.instancesearch.camera.ui.GoogleVisionResult.GoogleVisionResultActivity;
+import com.uit.instancesearch.camera.ui.dialog.ErrorDialog;
 import com.uit.instancesearch.camera.ui.dialog.MyCircleProgressBar;
 import com.uit.instancesearch.camera.ui.dialog.ServersDialogFragment;
 import com.uit.instancesearch.camera.listener.ActionListener;
@@ -21,7 +24,6 @@ import com.uit.instancesearch.camera.manager.GoogleAccountManager;
 import com.uit.instancesearch.camera.manager.UITResultViewManager;
 import com.uit.instancesearch.camera.manager.WSManager;
 import com.uit.instancesearch.camera.tools.ImageTools;
-import com.uit.instancesearch.camera.tools.StringTools;
 import com.uit.instancesearch.camera.tools.ViewTools;
 
 import android.Manifest;
@@ -53,6 +55,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 public class CameraActivity extends AppCompatActivity implements RegionSelectListener,
         UITWebServiceListener,
         ActionListener,
@@ -64,6 +68,8 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
     private static final int REQUEST_PICK_ACCOUNT = 41;
     private static final int REQUEST_ACCOUNT_PERMISSION = 43;
     private static final int REQUEST_CAMERA_PERMISSION = 44;
+    private static final int REQUEST_SHOW_RESULT = 46;
+
 
     MyCameraManager cameraManager;    // camera manager
     WSManager wsManager;        // web services manager
@@ -156,11 +162,10 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         switch (requestCode) {
             case REQUEST_ACCOUNT_PERMISSION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(CameraActivity.this, "Permission Granded!", Toast.LENGTH_SHORT).show();
                     pickAccount();
                 } else {
                     Toast.makeText(CameraActivity.this, "Permission Denied!", Toast.LENGTH_SHORT).show();
-                    System.exit(1);
+                    showServerSelectionDialog();
                 }
                 break;
             case REQUEST_CAMERA_PERMISSION:
@@ -186,7 +191,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
 
     public void onTokenReceived() {
         accessTokenGetting = false;
-        MyCircleProgressBar.dissmiss();
+        MyCircleProgressBar.dismiss();
         String accessToken = googleAccountManager.getAccessToken();
         if(accessToken != null) {
             Toast.makeText(this,accessToken,Toast.LENGTH_SHORT);
@@ -232,8 +237,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
             int x = getScreenSize().x;
             regionView.setWidthLimited(x - menuView.getLayoutParams().width);
         } else {
-            Toast.makeText(this, "Cannot use camera, application exit!", Toast.LENGTH_SHORT).show();
-            System.exit(1);
+            ErrorDialog.newInstance("Cannot use camera !").show(getFragmentManager(),"error");
         }
     }
 
@@ -259,6 +263,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         //camera.startPreview();
         // camera = MyCameraManager.getCameraInstance();
         if (imageSelecting) {
+
         } else {
             onCompleteAction();
         }
@@ -290,8 +295,11 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
     }
 
     void showMenu() {
-        menuView.showMenu();
-        menuView.setTouchEnabled(true);
+        if (menuView!= null) {
+            menuView.showMenu();
+            menuView.setTouchEnabled(true);
+
+        }
     }
 
     /**
@@ -351,7 +359,7 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
             imageSelecting = false;
         }
         showMenu();
-        camera.startPreview();
+        startCameraPreview();
         cameraManager.resumeFlash();
     }
 
@@ -364,38 +372,60 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         Toast.makeText(this, "Analyzing... Press back to cancel.", Toast.LENGTH_SHORT).show();
     }
 
+    public void startCameraPreview() {
+        if (camera != null) {
+            try {
+                camera.startPreview();
+            } catch (Exception e) {
+                ErrorDialog.newInstance("Cannot use camera").show(getFragmentManager(),"error");
+            }
+        }
+    }
 
     public void onCompleteAction() {
-        camera.startPreview();
-        cameraManager.resumeFlash();
-        showMenu();
-        regionView.setSelectEnabled(true);
+        if (!isShowResult) {
+            Log.d("TAG_DEBUG","Complete ...!");
+            if (regionView!= null && regionView.isScanning()) {
+                regionView.stopScan();
+            }
+            startCameraPreview();
+            if (cameraManager != null) cameraManager.resumeFlash();
+            showMenu();
+            if (regionView != null) regionView.setSelectEnabled(true);
+        }
     }
 
     @Override
     public void onCompleted() {
-        resultViewManager.hideResultView();
+        if (resultViewManager != null)
+            resultViewManager.hideResultView();
+        isShowResult = false;
         onCompleteAction();
         //resultViewManager.clearResults();
         //regionView.setVisibility(View.VISIBLE);
     }
 
+
     // GOOGLE listener
     @Override
-    public void onCloudVisionResponse(BatchAnnotateImagesResponse response) {
+    public void onCloudVisionRespond(BatchAnnotateImagesResponse response) {
         if (response != null) {
-            Toast.makeText(this, "GOOGLE RESPOND", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "GOOGLE RESPOND!", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(this, GoogleVisionResultActivity.class);
+            GoogleVisionResultData data = GoogleVisionResultData.getRespondData(response);
+            intent.putExtra(GoogleVisionResultActivity.TAG_RESULT_DATA,data);
             intent.putExtra(GoogleVisionResultActivity.TAG_QUERY_IMAGE_STRING,
                     ImageTools.encodeBitmapToString(queryImage));
-            intent.putExtra(GoogleVisionResultActivity.TAG_RESULT_STRING,
-                    StringTools.convertVisionResponseToString(response));
-            startActivity(intent);
+
+            startActivityForResult(intent, REQUEST_SHOW_RESULT);
 
             isShowResult = true;
+
+            onRespondAction();
+        } else {
+            onCompleteAction();
         }
-        onRespondAction();
     }
 
     public void onRespondAction() {
@@ -527,6 +557,9 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
                 }
                 Toast.makeText(this, "PLEASE SELECT AN ACCOUNT AGAIN !", Toast.LENGTH_SHORT).show();
                 pickAccount();
+            case REQUEST_SHOW_RESULT:
+                isShowResult = false;
+                break;
             default:
                 return;
         }

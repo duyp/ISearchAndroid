@@ -2,6 +2,7 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
 
     <color name="Transparent0">#FF000000</color>
     <color name="Transparent10">#E6000000</color>
@@ -19,7 +20,8 @@
     <color name="CyanTrans40">#9966ffff</color>
     <color name="CyanTrans60">#6666ffff</color>
     <color name="CyanTrans30">#B33889b8</color>
-    
+    <color name="Cyan">#3889b8</color>
+
     <color name="blueColor100">#008fff</color>
     <color name="blueColor90">#1A008fff</color>
     <color name="blueColor80">#33008fff</color>
@@ -32,6 +34,7 @@
     <color name="blueColor10">#E6008fff</color>
     
     <color name="gray">#303030</color>
+    <color name="lightgray">#d3d3d3</color>
     <color name="gray90">#1A303030</color>
     <color name="gray80">#33303030</color>
     <color name="gray70">#4D303030</color>
@@ -50,5 +53,6 @@
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#eeeeee</color>
 
+    <color name="green">#00FF00</color>
 
 </resources>
