@@ -1,11 +1,13 @@
 package com.uit.instancesearch.camera.ui.GoogleVisionResult;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationObjec
 import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.tools.ImageTools;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -23,9 +26,10 @@ import java.util.ArrayList;
 public class LabelFragment extends Fragment {
 
     static final String TAG_LABEL = "label";
+    ArrayList<LabelItemFragment> fragments;
 
     public LabelFragment() {
-
+        fragments = new ArrayList<>();
     }
 
     public static LabelFragment newInstance(String queryImg, ArrayList<LabelItem> labels) {
@@ -37,6 +41,12 @@ public class LabelFragment extends Fragment {
         LabelFragment fragment = new LabelFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void startProgressBarAnimation() {
+        for (LabelItemFragment f : fragments) {
+            f.startAnimation();
+        }
     }
 
     @Override
@@ -57,6 +67,7 @@ public class LabelFragment extends Fragment {
             // adding item
             for (LabelItem item : items) {
                 LabelItemFragment fragment = LabelItemFragment.newInstance(item);
+                fragments.add(fragment);
                 fm.beginTransaction().add(R.id.labelData, fragment).commit();
             }
         } else {
@@ -80,6 +91,14 @@ public class LabelFragment extends Fragment {
             return fragment;
         }
 
+        public void startAnimation() {
+            ProgressBar pb = (ProgressBar)getView().findViewById(R.id.labelProgressBar);
+            ObjectAnimator animation = ObjectAnimator.ofInt(pb,"progress",0,pb.getProgress());
+            animation.setDuration(1000);
+            animation.setInterpolator(new DecelerateInterpolator());
+            animation.start();
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -93,7 +112,8 @@ public class LabelFragment extends Fragment {
             int score = (int)(label.score*100);
             ((TextView)rootView.findViewById(R.id.labelScore))
                     .setText(String.valueOf(score) + "%");
-            ((ProgressBar)rootView.findViewById(R.id.labelProgressBar)).setProgress(score);
+            ProgressBar pb = (ProgressBar)rootView.findViewById(R.id.labelProgressBar);
+            pb.setProgress(score);
 
             return rootView;
         }

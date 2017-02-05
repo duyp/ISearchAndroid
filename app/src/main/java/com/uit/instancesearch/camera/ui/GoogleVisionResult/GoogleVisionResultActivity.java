@@ -44,13 +44,13 @@ public class GoogleVisionResultActivity extends AppCompatActivity
     private static final String TAG_SAFE_SEARCH_DATA = "safe_search_data";
     private static final String TAG_CURRENT_PAGE = "current_page";
 
-
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
     LandmarkFragment landmarkFragment;
     LabelFragment labelFragment;
     TextFragment textFragment;
+    SafeSearchFragment safeSearchFragment;
     LogoFragment logoFragment;
     FaceFragment faceFragment;
 
@@ -106,8 +106,8 @@ public class GoogleVisionResultActivity extends AppCompatActivity
         textFragment = TextFragment.newInstance(queryImage, data.getTexts());
         adapter.addFragment(textFragment, getString(R.string.text_detection));
 
-
-        adapter.addFragment(SafeSearchFragment.newInstance(queryImage, data.getSafeSearch()),
+        safeSearchFragment = SafeSearchFragment.newInstance(queryImage, data.getSafeSearch());
+        adapter.addFragment(safeSearchFragment,
                             getString(R.string.safesearch_detection));
 
         logoFragment = LogoFragment.newInstance(queryImage,data.getLogos());
@@ -116,8 +116,45 @@ public class GoogleVisionResultActivity extends AppCompatActivity
         faceFragment = FaceFragment.newInstance(queryImage, data.getFaces());
         adapter.addFragment(faceFragment, getString(R.string.face_detection));
 
+        setupViewPageListener(vp);
         vp.setAdapter(adapter);
 
+    }
+
+    private void setupViewPageListener(ViewPager vp) {
+        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0: // landmark
+                        landmarkFragment.startProgressBarAnimation();
+                        break;
+                    case 1: // label
+                        labelFragment.startProgressBarAnimation();
+                        break;
+                    case 2: // text
+                        break;
+                    case 3: // safe search
+                        safeSearchFragment.startProgressBarAnimation();
+                        break;
+                    case 4: // logo
+                        break;
+                    case 5: // face
+                        break;
+                    default: break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

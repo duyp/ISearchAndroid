@@ -1,5 +1,6 @@
 package com.uit.instancesearch.camera.ui.GoogleVisionResult;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,7 +28,7 @@ public class LandmarkFragment extends Fragment {
     static final String TAG_LANDMARK = "landmark";
     public static final String TAG_INDEX = "index";
 
-    ArrayList<Fragment> itemFragments;
+    ArrayList<LandmarkItemFragment> itemFragments;
 
     public LandmarkFragment() {
     }
@@ -53,6 +55,12 @@ public class LandmarkFragment extends Fragment {
                 LandmarkItemFragment fragment = LandmarkItemFragment.newInstance(item, i);
                 itemFragments.add(fragment);
             }
+    }
+
+    public void startProgressBarAnimation() {
+        for (LandmarkItemFragment f : itemFragments) {
+            f.startAnimation();
+        }
     }
 
     @Override
@@ -121,6 +129,14 @@ public class LandmarkFragment extends Fragment {
             fragment.setArguments(args);
 
             return fragment;
+        }
+
+        public void startAnimation() {
+            ProgressBar pb = (ProgressBar)getView().findViewById(R.id.landmarkProgressBar);
+            ObjectAnimator animation = ObjectAnimator.ofInt(pb,"progress",0,pb.getProgress());
+            animation.setDuration(1000);
+            animation.setInterpolator(new DecelerateInterpolator());
+            animation.start();
         }
 
         @Override
