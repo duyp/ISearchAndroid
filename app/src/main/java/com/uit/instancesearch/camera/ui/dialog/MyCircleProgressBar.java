@@ -55,8 +55,15 @@ public class MyCircleProgressBar {
         thread.start();
     }
 
+    public static ProgressDialog newDialogInstance(Context c) {
+        ProgressDialog dialog = new ProgressDialog(c);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        return dialog;
+    }
+
     public static void show(Context context, String message) {
-        if (pDialog == null) pDialog = new ProgressDialog(context);
+        if (pDialog == null) pDialog = newDialogInstance(context);
         pDialog.setMessage(message);
         pDialog.show();
     }
