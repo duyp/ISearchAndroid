@@ -2,9 +2,8 @@ package com.uit.instancesearch.camera.ProcessingServer;
 
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.uit.instancesearch.camera.listener.GoogleCloudVisionRequestListener;
+import com.uit.instancesearch.camera.listener.GoogleVisionRequestListener;
 import com.uit.instancesearch.camera.tools.ImageTools;
 
 import org.json.JSONArray;
@@ -39,9 +38,9 @@ public class GoogleImageAnnotationPostServer extends ProcessingServer{
     private final static String REQUEST_URL = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDM9mCLluCM-jUb6FqRMugYB4-sLwiTBV8";
 
     CloudVisionRequestRunner requestRunner; // using HTTP POST request
-    GoogleCloudVisionRequestListener listener;
+    GoogleVisionRequestListener listener;
 
-    public GoogleImageAnnotationPostServer(GoogleCloudVisionRequestListener gl) {
+    public GoogleImageAnnotationPostServer(GoogleVisionRequestListener gl) {
         listener = gl;
     }
 

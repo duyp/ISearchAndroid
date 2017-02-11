@@ -48,7 +48,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".ui.GoogleVisionResult.GoogleVisionResultActivity"
+            android:name=".GoogleResult.GoogleResultActivity"
             android:label="GoogleVisionResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/menu/menu_test.xml",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/menu/menu_test.xml"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/menu/menu_test.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/menu/menu_test.xml"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/menu/menu_test_tab.xml",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/menu/menu_test_tab.xml"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/menu/menu_test_tab.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/menu/menu_test_tab.xml"
     }
 ]

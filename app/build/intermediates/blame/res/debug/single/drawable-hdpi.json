@@ -1,42 +1,42 @@
 [
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_launcher.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_camera_on.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_camera_on.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_loading.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_loading.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plus.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_plus.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_camera.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_camera.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_loading.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_loading.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_close.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_close.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_flash_on.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_flash_on.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_upload.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_upload.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_flash.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_flash.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_close.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_close.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_plus.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_plus.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_upload.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_upload.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_flash_on.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_flash_on.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_flash.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_flash.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_download.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_download.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_camera.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_camera.png"
     },
     {
-        "merged": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_camera_on.png",
-        "source": "/home/m/Development/ProjectData/StudioProjects/ISearchCamera/app/src/main/res/drawable-hdpi/ic_camera_on.png"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_download.png",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/drawable-hdpi/ic_download.png"
     }
 ]

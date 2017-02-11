@@ -6,12 +6,12 @@ import java.io.InputStream;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
-import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationObject.GoogleVisionResultData;
+import com.uit.instancesearch.camera.GoogleModels.GoogleVisionResultData;
 import com.uit.instancesearch.camera.ProcessingServer.GoogleImageAnnotationServer;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
-import com.uit.instancesearch.camera.ui.GoogleVisionResult.GoogleVisionResultActivity;
+import com.uit.instancesearch.camera.GoogleResult.GoogleResultActivity;
 import com.uit.instancesearch.camera.ui.dialog.ErrorDialog;
 import com.uit.instancesearch.camera.ui.dialog.MyCircleProgressBar;
 import com.uit.instancesearch.camera.ui.dialog.ServersDialogFragment;
@@ -54,8 +54,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
-import org.json.JSONObject;
 
 public class CameraActivity extends AppCompatActivity implements RegionSelectListener,
         UITWebServiceListener,
@@ -412,10 +410,10 @@ public class CameraActivity extends AppCompatActivity implements RegionSelectLis
         if (response != null) {
             Toast.makeText(this, "GOOGLE RESPOND!", Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(this, GoogleVisionResultActivity.class);
+            Intent intent = new Intent(this, GoogleResultActivity.class);
             GoogleVisionResultData data = GoogleVisionResultData.getRespondData(response);
-            intent.putExtra(GoogleVisionResultActivity.TAG_RESULT_DATA,data);
-            intent.putExtra(GoogleVisionResultActivity.TAG_QUERY_IMAGE_STRING,
+            intent.putExtra(GoogleResultActivity.TAG_RESULT_DATA,data);
+            intent.putExtra(GoogleResultActivity.TAG_QUERY_IMAGE_STRING,
                     ImageTools.encodeBitmapToString(queryImage));
 
             startActivityForResult(intent, REQUEST_SHOW_RESULT);
