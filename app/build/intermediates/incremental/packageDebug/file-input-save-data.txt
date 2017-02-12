@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Feb 13 01:28:03 ICT 2017
+#Mon Feb 13 01:57:58 ICT 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/abc_scrubber_control_off_mtrl_alpha.png

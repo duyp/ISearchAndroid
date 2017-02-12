@@ -1,13 +1,19 @@
 package com.uit.instancesearch.camera.GoogleResult.FragmentViews;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.uit.instancesearch.camera.GoogleResult.GoogleResultActivity;
 import com.uit.instancesearch.camera.GoogleModels.TextItem;
@@ -106,15 +112,36 @@ public class TextFragment extends Fragment {
             final TextItem item = getArguments().getParcelable(TAG_TEXT_ITEM);
             final int index = getArguments().getInt(TAG_INDEX);
             // setting value
-            TextView textView = (TextView) rootView.findViewById(R.id.textDescription);
+            final TextView textView = (TextView) rootView.findViewById(R.id.textDescription);
             textView.setText(item.content);
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     ((GoogleResultActivity)getActivity()).onHighlight(TextFragment.class, index);
+
                 }
             });
 
+            final GestureDetector gestureDetector = new GestureDetector(getContext(),
+                    new GestureDetector.SimpleOnGestureListener() {
+                public boolean onDoubleTap(MotionEvent e) {
+                    // save text to clipboard
+                    ClipboardManager clipboardManager = (ClipboardManager) getActivity()
+                            .getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("text", textView.getText());
+                    clipboardManager.setPrimaryClip(clipData);
+                    Toast.makeText(getContext(), "Text saved to clipboard", Toast.LENGTH_SHORT);
+                    return true;
+                }
+            });
+
+
+            textView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return gestureDetector.onTouchEvent(motionEvent);
+                }
+            });
 
             return rootView;
         }
