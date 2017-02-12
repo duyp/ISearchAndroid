@@ -164,13 +164,15 @@ public class UITImageRetrievalServer extends ProcessingServer {
                                 publishProgress(rankedList);
                                 for(int i = nRankedList + 1; i < count; i++) {
                                     // tag, imageId, image content
-                                    publishProgress(new String[] {"image",requestTag,rankedList[i-nRankedList-1],resultSoap.getProperty(i).toString()});
+                                    publishProgress(new String[] {"image",requestTag,
+                                            rankedList[i-nRankedList-1],resultSoap.getProperty(i).toString()});
                                 }
                             }
                         }
                     } else if (requestTag.equals(TAG_GET_PREVIEW_IMAGE) || requestTag.equals(TAG_GET_FULL_IMAGE)){ // preview || full image
                         // tag, imageId, image content
-                        publishProgress(new String[] {"image",requestTag,requestContent,resultSoap.getProperty(0).toString()});
+                        publishProgress(new String[] {"image",requestTag,requestContent,
+                                resultSoap.getProperty(0).toString()});
                     } else { // thumbnails
                         int count = resultSoap.getPropertyCount();
                         String[] ids = requestContent.split(",");

@@ -2,11 +2,10 @@ package com.uit.instancesearch.camera.manager;
 
 import java.util.List;
 
-import com.uit.instancesearch.camera.ui.CameraActivity;
-import com.uit.instancesearch.camera.ui.CameraPreview;
+import com.uit.instancesearch.camera.main.CameraActivity;
+import com.uit.instancesearch.camera.main.CameraPreview;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
-import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
-import com.uit.instancesearch.camera.ui.RegionSelectionView;
+import com.uit.instancesearch.camera.main.RegionSelectionView;
 import com.uit.instancesearch.camera.listener.ActionListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
 
@@ -30,9 +29,7 @@ public class MyCameraManager {
 	Camera.Parameters params;
 	CameraPreview mPreview;
 	RegionSelectionView regionView;
-	
-	WSManager wsManager;
-	
+
 	boolean flashOn;
 	
 	static Context context;
@@ -57,20 +54,15 @@ public class MyCameraManager {
 				bm = scaleBitmap(bm);
 				rsListener.onRegionConfirmed(bm);
 				actionListener.onQuerying();
-				if (server instanceof UITImageRetrievalServer) { // for UIT server
-					wsManager.executeUITQueryRequest(bm);
-				} else { // for GOOGLE server
-					wsManager.executeGoogleVisionImageRequest(bm);
-				}
+				server.executeQueryRequest(bm);
 				flashChange(false);
 			}
 		};
 		
-	public MyCameraManager(Context c, Camera camera, CameraPreview preview, RegionSelectionView rs, WSManager wsm) {
+	public MyCameraManager(Context c, Camera camera, CameraPreview preview, RegionSelectionView rs) {
 		mCamera = camera;
 		mPreview = preview;
 		regionView = rs;
-		wsManager = wsm;
 		context = c;
 		//initialize();
 	}

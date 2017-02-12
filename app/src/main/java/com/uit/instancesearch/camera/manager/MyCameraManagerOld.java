@@ -11,11 +11,11 @@ import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.Size;
 import android.os.Build;
 
-import com.uit.instancesearch.camera.ui.CameraActivity;
-import com.uit.instancesearch.camera.ui.CameraPreview;
+import com.uit.instancesearch.camera.main.CameraActivity;
+import com.uit.instancesearch.camera.main.CameraPreview;
 import com.uit.instancesearch.camera.ProcessingServer.ProcessingServer;
 import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
-import com.uit.instancesearch.camera.ui.RegionSelectionView;
+import com.uit.instancesearch.camera.main.RegionSelectionView;
 import com.uit.instancesearch.camera.listener.ActionListener;
 import com.uit.instancesearch.camera.listener.RegionSelectListener;
 

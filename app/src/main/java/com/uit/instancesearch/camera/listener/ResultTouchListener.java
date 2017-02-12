@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
+import com.uit.instancesearch.camera.UITResult.ResultListener;
+
 public class ResultTouchListener implements OnTouchListener{
 
 	Point pressedPoint;

@@ -24,7 +24,7 @@ import com.uit.instancesearch.camera.GoogleModels.GoogleVisionResultData;
 import com.uit.instancesearch.camera.GoogleModels.LogoItem;
 import com.uit.instancesearch.camera.GoogleModels.SafeSearchItem;
 import com.uit.instancesearch.camera.R;
-import com.uit.instancesearch.camera.ui.dialog.MyCircleProgressBar;
+import com.uit.instancesearch.camera.main.dialog.MyCircleProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;

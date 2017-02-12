@@ -27,7 +27,7 @@
         <!-- android:hardwareAccelerated="false" -->
 
         <activity
-            android:name="com.uit.instancesearch.camera.ui.CameraActivity"
+            android:name="com.uit.instancesearch.camera.main.CameraActivity"
             android:label="@string/title_activity_camera"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
@@ -48,7 +48,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.uit.instancesearch.camera.ui.GoogleVisionResult.GoogleVisionResultActivity"
+            android:name="com.uit.instancesearch.camera.GoogleResult.GoogleResultActivity"
             android:label="GoogleVisionResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

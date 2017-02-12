@@ -5,5 +5,5 @@ package com.uit.instancesearch.camera.listener;
  */
 
 public interface ServiceListener {
-    void onQuerying();
+    public void onConnectionError();
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-    <com.uit.instancesearch.camera.ui.GoogleVisionResult.DrawableImageView
+    <com.uit.instancesearch.camera.GoogleResult.FragmentViews.DrawableImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/gray"

@@ -17,6 +17,8 @@ import com.uit.instancesearch.camera.GoogleModels.LabelItem;
 import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.tools.ImageTools;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -79,8 +81,8 @@ public class LabelFragment extends Fragment {
     public static class LabelItemFragment extends Fragment {
 
         public static final String TAG_LABEL_ITEM = "label_item";
-        public LabelItemFragment() {
 
+        public LabelItemFragment() {
         }
         public static LabelItemFragment newInstance(LabelItem item) {
             LabelItemFragment fragment = new LabelItemFragment();
@@ -93,7 +95,7 @@ public class LabelFragment extends Fragment {
 
         public void startAnimation() {
             ProgressBar pb = (ProgressBar)getView().findViewById(R.id.labelProgressBar);
-            ObjectAnimator animation = ObjectAnimator.ofInt(pb,"progress",0,pb.getProgress());
+            ObjectAnimator animation = ObjectAnimator.ofInt(pb,"progress",0, pb.getProgress());
             animation.setDuration(1000);
             animation.setInterpolator(new DecelerateInterpolator());
             animation.start();
@@ -104,18 +106,18 @@ public class LabelFragment extends Fragment {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_label_item,container,false);
 
-            final LabelItem label = getArguments().getParcelable(TAG_LABEL_ITEM);
 
-            // setting value
-            ((TextView)rootView.findViewById(R.id.labelDescription))
-                    .setText(label.description);
+            final LabelItem label = getArguments().getParcelable(TAG_LABEL_ITEM);
+            ((TextView)rootView.findViewById(R.id.labelDescription)).setText(label.description);
+
             int score = (int)(label.score*100);
-            ((TextView)rootView.findViewById(R.id.labelScore))
-                    .setText(String.valueOf(score) + "%");
+            ((TextView)rootView.findViewById(R.id.labelScore)).setText(String.valueOf(score) + "%");
+
             ProgressBar pb = (ProgressBar)rootView.findViewById(R.id.labelProgressBar);
             pb.setProgress(score);
 
             return rootView;
         }
+
     }
 }

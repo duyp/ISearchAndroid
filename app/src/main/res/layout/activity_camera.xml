@@ -3,7 +3,7 @@
     android:id="@+id/FrameLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uit.instancesearch.camera.ui.CameraActivity" >
+    tools:context="com.uit.instancesearch.camera.main.CameraActivity" >
 
     <FrameLayout
         android:id="@+id/camera_preview"
@@ -26,25 +26,25 @@
         />
     </LinearLayout>
     
-    <com.uit.instancesearch.camera.ui.RegionSelectionView
+    <com.uit.instancesearch.camera.main.RegionSelectionView
        android:id="@+id/region_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
     
-    <com.uit.instancesearch.camera.ui.MenuView
+    <com.uit.instancesearch.camera.main.MenuView
         android:id="@+id/menu_view"
         android:layout_gravity="right"
         android:layout_width="70dp"
         android:layout_height="fill_parent" />
         
-    <com.uit.instancesearch.camera.ui.ResultView
+    <com.uit.instancesearch.camera.UITResult.ResultView
 	    android:id="@+id/result_view"
 	    android:layout_gravity="right"
 	    android:layout_width="300dp"
 	    android:layout_height="fill_parent"
 	    android:translationX="300dp"
 	    android:background="@color/Transparent100" >
-	</com.uit.instancesearch.camera.ui.ResultView>
+	</com.uit.instancesearch.camera.UITResult.ResultView>
 	
    	<FrameLayout 
         android:id="@+id/image_view" 

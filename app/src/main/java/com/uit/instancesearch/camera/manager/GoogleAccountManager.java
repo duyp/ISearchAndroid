@@ -1,16 +1,14 @@
 package com.uit.instancesearch.camera.manager;
 
-import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.app.ActivityCompat;
 
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
-import com.uit.instancesearch.camera.ui.CameraActivity;
+import com.uit.instancesearch.camera.main.GoogleAccountListener;
 
 import java.io.IOException;
 
@@ -23,17 +21,19 @@ public class GoogleAccountManager {
     public static int REQUEST_PERMISSION_CODE = 54;
 
     Account account;
-    Activity mActivity;
+    Context context;
     AccountManager am;
     GetTokenTask getTokenTask;
+    GoogleAccountListener listener;
 
     private String accessToken;
 
     public static String SCOPE = "oauth2:https://www.googleapis.com/auth/cloud-platform";
 
-    public GoogleAccountManager (Account a, Activity parent) {
+    public GoogleAccountManager (Context c, GoogleAccountListener l, Account a) {
         account = a;
-        mActivity = parent;
+        context = c;
+        listener = l;
     }
 
     public void getAuthToken() {
@@ -43,11 +43,6 @@ public class GoogleAccountManager {
 
     public String getAccessToken() {
         return accessToken;
-    }
-
-    // MUST Implements for Android 6 (v23)
-    public void requestAccountPermission(CameraActivity activity) {
-        ActivityCompat.requestPermissions(activity, new String[] {Manifest.permission.GET_ACCOUNTS}, REQUEST_PERMISSION_CODE);
     }
 
     public void cancelExecute() {
@@ -67,18 +62,18 @@ public class GoogleAccountManager {
         protected void onPostExecute(String result) {
             if (!isCancelled()) {
                 accessToken = result;
-                ((CameraActivity)mActivity).onTokenReceived();
+                listener.onTokenReceived();
             }
         }
 
         String fetchToken() {
             if (account == null) return null;
             try {
-                String accessToken = GoogleAuthUtil.getToken(mActivity,account,SCOPE);
-                GoogleAuthUtil.clearToken(mActivity,accessToken);
-                return GoogleAuthUtil.getToken(mActivity,account,SCOPE);
+                String accessToken = GoogleAuthUtil.getToken(context,account,SCOPE);
+                GoogleAuthUtil.clearToken(context,accessToken);
+                return GoogleAuthUtil.getToken(context,account,SCOPE);
             } catch (UserRecoverableAuthException ue) {
-                mActivity.startActivityForResult(ue.getIntent(), CameraActivity.REQUEST_ACCOUNT_AUTHORIZATION);
+                //mActivity.startActivityForResult(ue.getIntent(), CameraActivity.REQUEST_ACCOUNT_AUTHORIZATION);
             } catch (GoogleAuthException e) {
                 e.printStackTrace();
             } catch (IOException e) {

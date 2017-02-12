@@ -27,7 +27,7 @@
         <!-- android:hardwareAccelerated="false" -->
 
         <activity
-            android:name=".ui.CameraActivity"
+            android:name=".main.CameraActivity"
             android:label="@string/title_activity_camera"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">

@@ -5,29 +5,29 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="9998736687876"
+    timestamp="31879411449081"
     token="6822447852759538959"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="440" />
+        duration="135" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="45" />
+        duration="0" />
     <task
         name="verifier"
-        duration="3" />
+        duration="0" />
 
     <artifact
         location="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="9998736687876"
+        timestamp="31879411449081"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/outputs/apk/app-debug.apk"

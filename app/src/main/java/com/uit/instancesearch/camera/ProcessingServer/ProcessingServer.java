@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
  */
 
 public abstract class ProcessingServer {
-
     public abstract void executeQueryRequest(Bitmap bm);
     public abstract void cancelExecute();
 }

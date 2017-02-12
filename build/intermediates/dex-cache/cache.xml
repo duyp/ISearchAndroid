@@ -3,96 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-10.0.1_5f936bf0c29cdeb8570c65b9bf6d46e5a233cb82.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.22.0/7a0fe12b7d8189a821934d6f9d6586d00180e461/google-api-client-android-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7a0fe12b7d8189a821934d6f9d6586d00180e461">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-api-client-android-1.22.0_d8c7d389e9bf88afa7298e4efa21f0affe21acea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1d63f369ac78e4838a3197147012026e791008cb">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.22.0_0788768c278aa2ceb140617cd7d78d0cce5132f8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_030abb8165c374dbab9ec4fe84de6e3cbec5daec.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_2da4ba9e21a0fe9ce92f293c29cc93eacdcb5ff5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/17.0/463f8378feba44df7ba7cd9272d01837dad62b36/guava-jdk5-17.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/guava-jdk5-17.0_dc16c0afcb3eccbec357b358fadd2851093a0d74.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.22.0/d441fc58329c4a4c067acec04ac361627f66ecc8/google-http-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-http-client-1.22.0_285c0bd281d487ce01b78812543f80c960fc459c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_c668ad30b81ff2e4282ee2a2f2911266ae00b7ad.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2bf893856577f5038c0b8007a43fda3b3c5beb23">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v13-23.4.0_df5b01735df31088ff34c5674abedb45fc3cba7c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="be09545b7e6ff322c7286d2e80bed3b75b76c529">
-        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_262c0bdfc29eae35f1b99c50c3cc4b26dfa3be60.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -108,6 +18,15 @@
         revision="25.0.2"
         sha1="fef469dcc3073ecc4706ba216479f2111e05834f">
         <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-percent-23.0.0_c92287c83c751465eb4add84e99e4bfec85179ae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-10.0.1_5f936bf0c29cdeb8570c65b9bf6d46e5a233cb82.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,12 +48,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.22.0/7a0fe12b7d8189a821934d6f9d6586d00180e461/google-api-client-android-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a0fe12b7d8189a821934d6f9d6586d00180e461">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-api-client-android-1.22.0_d8c7d389e9bf88afa7298e4efa21f0affe21acea.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="62681b8212ca52278feafec31775fd0cb096d99a">
         <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-3.3.0-jar-with-dependencies_8dc591e18f01a86f4462c19834c699b8272befe4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.22.0/1d63f369ac78e4838a3197147012026e791008cb/google-oauth-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d63f369ac78e4838a3197147012026e791008cb">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.22.0_0788768c278aa2ceb140617cd7d78d0cce5132f8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -162,6 +99,15 @@
         revision="25.0.2"
         sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
         <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-10.0.1_e5a20a6490a17a106792feb3edfa713cede48ffd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_030abb8165c374dbab9ec4fe84de6e3cbec5daec.jar" />
     </item>
     <item
         is-multidex="false"
@@ -219,6 +165,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_2da4ba9e21a0fe9ce92f293c29cc93eacdcb5ff5.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -232,8 +187,35 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="24a0db8d56ab790ffdd163f7c965bab6aaff49e6">
+        sha1="16ea1a6e92a78d0db0cf84fb8a6e9a8043dedd3e">
         <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_89828bd9f32f323c1c490303bea5c29f4e6590af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/17.0/463f8378feba44df7ba7cd9272d01837dad62b36/guava-jdk5-17.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/guava-jdk5-17.0_dc16c0afcb3eccbec357b358fadd2851093a0d74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.22.0/d441fc58329c4a4c067acec04ac361627f66ecc8/google-http-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-http-client-1.22.0_285c0bd281d487ce01b78812543f80c960fc459c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_c668ad30b81ff2e4282ee2a2f2911266ae00b7ad.jar" />
     </item>
     <item
         is-multidex="false"
@@ -279,6 +261,24 @@
         revision="25.0.2"
         sha1="da91b4e6752e7eec38bca490f82018c3c8c45358">
         <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/google-api-services-vision-v1-rev16-1.22.0_bc07975a7eb22eccd01e30dbd4935d3e16c34246.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2bf893856577f5038c0b8007a43fda3b3c5beb23">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v13-23.4.0_df5b01735df31088ff34c5674abedb45fc3cba7c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="be09545b7e6ff322c7286d2e80bed3b75b76c529">
+        <dex dex="/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_262c0bdfc29eae35f1b99c50c3cc4b26dfa3be60.jar" />
     </item>
 
 </items>
