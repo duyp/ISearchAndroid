@@ -63,9 +63,9 @@ public class MainControllerImpl implements MainController,
     }
 
     @Override
-    public void initUITServer() {
+    public void initUITServer(String serverIP) {
         this.selectedServer = WSManager.SERVER_UIT;
-        server = new UITImageRetrievalServer(mainView.getContext(), this);
+        server = new UITImageRetrievalServer(mainView.getContext(), serverIP, this);
     }
 
     @Override

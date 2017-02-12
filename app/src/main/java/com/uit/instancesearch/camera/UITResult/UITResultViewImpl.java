@@ -46,8 +46,8 @@ public class UITResultViewImpl implements UITResultView, ResultListener
 
     Activity parentActivity;
 
-    public UITResultViewImpl(Activity parent) {
-        controller = new UITResultControllerImpl(this);
+    public UITResultViewImpl(Activity parent, String serverIP) {
+        controller = new UITResultControllerImpl(this, serverIP);
         initViews(parent);
         parentActivity = parent;
     }

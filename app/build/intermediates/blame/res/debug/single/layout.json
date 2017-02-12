@@ -16,12 +16,12 @@
         "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/fragment_text_item.xml"
     },
     {
-        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/test.xml",
-        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/test.xml"
-    },
-    {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/test.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/test.xml"
     },
     {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
@@ -48,16 +48,16 @@
         "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
-        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_layout_tab_icon.xml"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/fragment_label.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/fragment_label.xml"
     },
     {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/fragment_label.xml",
-        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/fragment_label.xml"
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_layout_tab_icon.xml"
     },
     {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
@@ -230,6 +230,10 @@
     {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/fragment_safesearch_item.xml",
         "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/fragment_safesearch_item.xml"
+    },
+    {
+        "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/server_ip_input.xml",
+        "source": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/src/main/res/layout/server_ip_input.xml"
     },
     {
         "merged": "/Users/air/AndroidStudioProjects/ISearchCamera/ISearchAndroid/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",

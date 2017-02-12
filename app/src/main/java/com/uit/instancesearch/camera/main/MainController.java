@@ -15,7 +15,7 @@ public interface MainController {
     boolean initCamera();
     void init();
 
-    void initUITServer();
+    void initUITServer(String serverIP);
     void initGoogleServer(String accessToken);
     int getSelectedServer();
     boolean isGoogleConnected();

@@ -2536,7 +2536,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0c005f;
         public static final int action_mode_bar_stub=0x7f0c005e;
         public static final int action_mode_close_button=0x7f0c0044;
-        public static final int action_settings=0x7f0c00d3;
+        public static final int action_settings=0x7f0c00d4;
         public static final int activity_chooser_view_content=0x7f0c0045;
         public static final int adjust_height=0x7f0c0033;
         public static final int adjust_width=0x7f0c0034;
@@ -2687,6 +2687,7 @@ containing a value of this type.
         public static final int select_dialog_listview=0x7f0c0070;
         public static final int selected_image_view=0x7f0c0074;
         public static final int selected_view=0x7f0c0073;
+        public static final int serverIPEditText=0x7f0c00d0;
         public static final int shortcut=0x7f0c005b;
         public static final int showCustom=0x7f0c0011;
         public static final int showHome=0x7f0c0012;
@@ -2710,7 +2711,7 @@ containing a value of this type.
         public static final int textDescription=0x7f0c00c2;
         public static final int textImageView=0x7f0c00c0;
         public static final int textSpacerNoButtons=0x7f0c0055;
-        public static final int textView=0x7f0c00d0;
+        public static final int textView=0x7f0c00d1;
         public static final int textView10=0x7f0c008b;
         public static final int textView11=0x7f0c008c;
         public static final int textView12=0x7f0c008d;
@@ -2718,8 +2719,8 @@ containing a value of this type.
         public static final int textView14=0x7f0c008f;
         public static final int textView15=0x7f0c0090;
         public static final int textView16=0x7f0c0091;
-        public static final int textView2=0x7f0c00d1;
-        public static final int textView3=0x7f0c00d2;
+        public static final int textView2=0x7f0c00d2;
+        public static final int textView3=0x7f0c00d3;
         public static final int time=0x7f0c00c9;
         public static final int title=0x7f0c004b;
         public static final int title_template=0x7f0c0050;
@@ -2807,8 +2808,9 @@ containing a value of this type.
         public static final int select_dialog_item_material=0x7f03003c;
         public static final int select_dialog_multichoice_material=0x7f03003d;
         public static final int select_dialog_singlechoice_material=0x7f03003e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03003f;
-        public static final int test=0x7f030040;
+        public static final int server_ip_input=0x7f03003f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030040;
+        public static final int test=0x7f030041;
     }
     public static final class menu {
         public static final int menu_test=0x7f0d0000;

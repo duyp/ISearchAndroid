@@ -19,9 +19,9 @@ public class UITResultControllerImpl implements UITResultController, UITWebServi
     UITImageRetrievalServer server;
     UITResultView view;
 
-    public UITResultControllerImpl(UITResultView view) {
+    public UITResultControllerImpl(UITResultView view, String serverIP) {
         this.view = view;
-        server = new UITImageRetrievalServer(view.getContext(),this);
+        server = new UITImageRetrievalServer(view.getContext(), serverIP, this);
         manager = new ResultManager();
     }
 

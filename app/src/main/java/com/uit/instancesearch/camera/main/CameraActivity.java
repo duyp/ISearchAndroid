@@ -7,12 +7,14 @@ import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.uit.instancesearch.camera.GoogleModels.GoogleVisionResultData;
+import com.uit.instancesearch.camera.ProcessingServer.UITImageRetrievalServer;
 import com.uit.instancesearch.camera.R;
 import com.uit.instancesearch.camera.GoogleResult.GoogleResultActivity;
 import com.uit.instancesearch.camera.UITResult.UITResultView;
 import com.uit.instancesearch.camera.UITResult.UITResultViewImpl;
 import com.uit.instancesearch.camera.main.dialog.ErrorDialog;
 import com.uit.instancesearch.camera.main.dialog.MyCircleProgressBar;
+import com.uit.instancesearch.camera.main.dialog.ServerIPDialogFragment;
 import com.uit.instancesearch.camera.main.dialog.ServersDialogFragment;
 import com.uit.instancesearch.camera.manager.MyCameraManager;
 import com.uit.instancesearch.camera.manager.WSManager;
@@ -49,7 +51,8 @@ import android.widget.Toast;
 public class CameraActivity extends AppCompatActivity
         implements MainView,
         MainMenuListener,
-        ServersDialogFragment.ServersDialogListener {
+        ServersDialogFragment.ServersDialogListener,
+        ServerIPDialogFragment.ServerIPDialogListener {
 
     private static final int REQUEST_SELECT_PHOTO = 100;
 
@@ -107,14 +110,26 @@ public class CameraActivity extends AppCompatActivity
         serverDialog.show(getFragmentManager(), "servers");
     }
 
+    void showServerIPDialog() {
+        ServerIPDialogFragment serverIPDialog = new ServerIPDialogFragment();
+        serverIPDialog.setCancelable(false);
+        serverIPDialog.show(getFragmentManager(), "server_ip");
+    }
+
+    @Override
     public void onServersDialogPositiveClick(DialogFragment dialog, int chosenServer) {
         if (chosenServer == WSManager.SERVER_UIT) {
-            controller.initUITServer();
-            checkCameraPermission();
+            showServerIPDialog();
         } else {
             // check and request Account permission
             checkAccountPermission();
         }
+    }
+
+    @Override
+    public void onServerIPDialogPositiveClick(String serverIP) {
+        controller.initUITServer(serverIP);
+        checkCameraPermission();
     }
 
     void checkAccountPermission() {
@@ -210,7 +225,7 @@ public class CameraActivity extends AppCompatActivity
 
             if (controller.isUITServerSelected()) {
                 // result event manager
-                resultView = new UITResultViewImpl(this);
+                resultView = new UITResultViewImpl(this, UITImageRetrievalServer.serverIP);
             }
 
             MenuView menuView = (MenuView) this.findViewById(R.id.menu_view);
@@ -509,4 +524,5 @@ public class CameraActivity extends AppCompatActivity
     public Context getContext() {
         return this;
     }
+
 }

@@ -31,8 +31,11 @@ public class UITImageRetrievalServer extends ProcessingServer {
     public static final String TAG_GET_PREVIEW_IMAGE = "get-preview";
     public static final String TAG_GET_THUMBNAIL_IMAGE = "get-thumbnail";
 
+    public static final String DEFAULT_IP = "192.168.1.123";
     //private static final String URL = "http://phamduy.ddns.net:8080/InstanceSearch/services/ISService?wsdl";
-    private static final String URL = "http://192.168.1.123:8080/ISearchServices/services/ISService?wsdl";
+    private static final String DEFAULT_URL = "http://192.168.1.123:8080/ISearchServices/services/ISService?wsdl";
+    private static final String URL_PRE = "http://";
+    private static final String URL_LAST = ":8080/ISearchServices/services/ISService?wsdl";
     //private static final String URL = "http://192.168.24.59:8080/InstanceSearch/services/ISService?wsdl";
     public static final String NAMESPACE = "http://services.instancesearch.uit.com";
     public static final String SOAP_ACTION_PREFIX = "/";
@@ -47,9 +50,12 @@ public class UITImageRetrievalServer extends ProcessingServer {
     ServiceRunner runner;
     boolean cancelled = true;
 
-    public UITImageRetrievalServer(Context c, UITWebServiceListener listener) {
+    public static String serverIP;
+
+    public UITImageRetrievalServer(Context c, String serverIP, UITWebServiceListener listener) {
         context = c;
         this.wsListener = listener;
+        this.serverIP = serverIP;
     }
 
     @Override
@@ -117,7 +123,7 @@ public class UITImageRetrievalServer extends ProcessingServer {
 
             envelope.bodyOut = request;
 
-            HttpTransportSE transport = new HttpTransportSE(URL);
+            HttpTransportSE transport = new HttpTransportSE(URL_PRE + serverIP + URL_LAST);
             long time = System.currentTimeMillis();
             try {
                 transport.call(NAMESPACE+SOAP_ACTION_PREFIX+METHOD, envelope);
